@@ -4,8 +4,8 @@
 #
 # chkconfig:    345 95 10
 #
-# description:	gkrellmd Listens for connections from gkrellm clients.  When a  gkrellm
-#		client connects to a gkrellmd server all builtin monitors collect their
+# description:	gkrellmd Listens for connections from gkrellm clients.  When a gkrellm \
+#		client connects to a gkrellmd server all builtin monitors collect their \
 #		data from the server.
 #
 # processname:	gkrellmd
