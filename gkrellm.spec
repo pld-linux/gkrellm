@@ -6,11 +6,6 @@ Version:	1.2.9
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/AplicaГУes
-Group(pt):	X11/AplicaГУes
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
@@ -64,13 +59,6 @@ Summary:	gkrellm include files
 Summary(pl):	Pliki nagЁСwkowe do gkrellm
 Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	gtk+-devel
 Requires:	imlib-devel
 
