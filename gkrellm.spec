@@ -161,7 +161,7 @@ fi
 %defattr(644,root,root,755)
 %doc Changelog* README Themes.html
 %attr(755,root,root) %{_bindir}/gkrellm
-%{_mandir}/man1/gkrellm*
+%{_mandir}/man1/gkrellm.*
 %dir %{_libdir}/gkrellm2
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
@@ -170,7 +170,7 @@ fi
 
 %files gkrellmd
 %defattr(644,root,root,755)
-%{_mandir}/man1/gkrellmd*
+%{_mandir}/man1/gkrellmd.*
 %attr(755,root,root) %{_bindir}/gkrellmd
 %attr(755,root,root) %{_initrddir}/gkrellmd
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/sysconfig/gkrellmd
