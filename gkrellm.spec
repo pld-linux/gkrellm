@@ -1,15 +1,12 @@
-# RPM spec file for GKrellm
-
 Summary:	Multiple stacked system monitors: 1 process.
 Name:		gkrellm
-Version:	0.6.0
-Release:	2a
+Version:	0.6.1
+Release:	1
 Copyright:	GPL
 Group:		X11/Utilities
-Source:		Fhttp://web.wt.net/~billw/gkrellm/gkrellm-0.6.0-2.tgz
 Vendor:		Bill Wilson <billw@wt.net>
-Packager:	Gary Thomas <gdt@linuxppc.org>
-#BuildRoot:	<Where to stage it>
+Source:		Fhttp://web.wt.net/~billw/gkrellm/%{name}-%{version}.tgz
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 GKrellM charts CPU, Disk, and all active net interfaces automatically.
@@ -24,7 +21,7 @@ are provided.  Additional features are:
   * 2 example alternate themes provided in /usr/doc/gkrellm/examples.
 
 %prep
-%setup -q -n gkrellm-0.6.0-2
+%setup -q
 
 %build
 make
