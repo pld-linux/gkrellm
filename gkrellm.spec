@@ -125,6 +125,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %build
 %{__make} \
 	OPTFLAGS="%{rpmcflags}" \
+	PKGCONFIGDIR=%{_libdir}/pkgconfig \
 	INSTALLROOT=%{_prefix}
 
 %install
@@ -137,6 +138,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
 
 %{__make} install \
 	%{?debug:STRIP=} \
+	PKGCONFIGDIR=$RPM_BUILD_ROOT%{_libdir}/pkgconfig \
 	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix}
 
 %{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
