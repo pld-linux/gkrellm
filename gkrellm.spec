@@ -118,9 +118,6 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf Changelog Changelog-plugins.html Changelog-themes.html \
-	README Themes.html
-
 %find_lang %{name}
 
 %clean
@@ -128,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files  -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc Changelog* README Themes.html
 %attr(755,root,root) %{_bindir}/gkrellm
 %attr(755,root,root) %{_bindir}/gkrellmd
 %{_mandir}/man1/*
