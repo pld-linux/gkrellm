@@ -5,13 +5,12 @@ Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
 Version:	2.1.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-paths_fix.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
 BuildRequires:	glib2-devel >= 2.2.0
@@ -94,7 +93,6 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 %{__make} CFLAGS="%{rpmcflags}"
@@ -102,7 +100,8 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm2} \
-	$RPM_BUILD_ROOT{%{_libdir},%{_datadir}}/gkrellm2 \
+	$RPM_BUILD_ROOT%{_libdir}/gkrellm2{,/plugins} \
+	$RPM_BUILD_ROOT%{_datadir}/gkrellm2 \
 	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/locale
 
@@ -127,6 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gkrellmd
 %{_mandir}/man1/*
 %dir %{_libdir}/gkrellm2
+%dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
 %{_applnkdir}/System/*
 %{_pixmapsdir}/*
