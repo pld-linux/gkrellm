@@ -8,6 +8,5 @@ Icon=gkrellm.png
 Terminal=false
 Type=Application
 Encoding=UTF-8
-Categories=Application;System;Utilities;
-
+Categories=GTK;System;Monitor;
 # vi: encoding=utf-8
