@@ -1,7 +1,7 @@
 Summary:	Multiple stacked system monitors: 1 process
 Name:		gkrellm
 Version:	1.0.6
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		Bill Wilson <billw@wt.net>
 Group:		X11/Applications
@@ -48,6 +48,7 @@ Summary(pl):	Pliki nag³ówkowe do gkrellm
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
+Requires:	gtk+-devel
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
