@@ -69,6 +69,7 @@ Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
 Group(ru):	X11/Разработка/Библиотеки
 Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	gtk+-devel
+Requires:	imlib-devel
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
