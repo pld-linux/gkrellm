@@ -1,6 +1,6 @@
 Summary:	Multiple stacked system monitors: 1 process
 Name:		gkrellm
-Version:	0.10.5
+Version:	1.0.1
 Release:	1
 License:	GPL
 Vendor:		Bill Wilson <billw@wt.net>
@@ -8,7 +8,6 @@ Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
-patch0:		%{name}-CFLAGS.patch
 BuildRequires:	gtk+-devel >= 1.2
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,7 +39,6 @@ kalendarz. Inne funkcje:
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 %{__make} CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
@@ -53,8 +51,7 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm}
 	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
 	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir}
 
-gzip -9nf Changelog README gkrellmrc \
-	Themes.html Changelog-plugins.html Changelog-themes.html
+gzip -9nf COPYRIGHT Changelog README Themes.html INSTALL gkrellmrc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
