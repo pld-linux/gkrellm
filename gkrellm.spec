@@ -5,7 +5,7 @@ Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
 Version:	2.1.21
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 #Source0:	http://web.wt.net/~billw/%{name}/%{name}-%{version}.tar.bz2
@@ -131,14 +131,14 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
 	$RPM_BUILD_ROOT%{_libdir}/gkrellm2{,/plugins} \
 	$RPM_BUILD_ROOT%{_datadir}/gkrellm2 \
-	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/locale
 
 %{__make} install \
 	%{?debug:STRIP=} \
 	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix}
 
-%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
+%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 %{__install} %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 %{__install} -D %{SOURCE3} $RPM_BUILD_ROOT%{_initrddir}/gkrellmd
 %{__install} -D %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/gkrellmd
@@ -173,7 +173,7 @@ fi
 %dir %{_libdir}/gkrellm2
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
-%{_applnkdir}/System/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
 
 %files gkrellmd
