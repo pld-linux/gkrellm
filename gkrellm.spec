@@ -1,8 +1,10 @@
 Summary:	Multiple stacked system monitors: 1 process
 Summary(pl):	Zestaw wielu monitorСw systemu(Сw) w jednym procesie
 Summary(pt_BR):	MonitoraГЦo de atividades do sistema
+Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
+Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	1.2.9
+Version:	1.2.10
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -54,10 +56,28 @@ caixas de correio no estilo mbox e para a temperatura da CPU. TambИm
 inclui um monitor de tempo de atividade da mАquina, um rСtulo como o
 nome da mАquina e um relСgio e calendАrio.
 
+%description -l ru
+GKrellM отображает графики для SMP CPU, загрузки, дисков и всех
+активных сетевых интерфейсов автоматически. Есть кнопка on/off и
+таймер времени онлайн для PPP интерфейса. Есть мониторы оперативной
+памяти и swap, файловых систем, обращений из интернета, APM, почтовых
+ящиков и температуры CPU. Включает также монитор uptime, метку имени
+хоста, часы и календарь.
+
+%description -l uk
+GKrellM в╕добража╓ граф╕ки для SMP CPU, завантаження, диск╕в та вс╕х
+активних мережевих ╕нтерфейс╕в автоматично. ╢ кнопка on/off та таймер
+онлайн-часу для PPP ╕нтерфейсу. ╢ мон╕тори оперативно╖ пам'ят╕ та
+swap, файлових систем, звертань з ╕нтернету, APM, поштових скриньок та
+температури CPU. Включа╓ також мон╕тор uptime, м╕тку ╕мен╕ хоста,
+годинник та календар.
+
 %package devel
 Summary:	gkrellm include files
 Summary(pl):	Pliki nagЁСwkowe do gkrellm
 Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
+Summary(ru):	Файлы C хедеров для GKrellM
+Summary(uk):	Файли C хедер╕в для GKrellM
 Group:		X11/Development/Libraries
 Requires:	gtk+-devel
 Requires:	imlib-devel
@@ -70,6 +90,12 @@ Pliki nagЁСwkowe do gkrellm.
 
 %description devel -l pt_BR
 Componentes para desenvolvimento de plugins para o gkrellm.
+
+%description devel -l ru
+Файлы C хедеров для GKrellM - для разработки и поддержки модулей.
+
+%description devel -l uk
+Файли C хедер╕в для GKrellM - для розробки та п╕дтримки модул╕в.
 
 %prep
 %setup -q
