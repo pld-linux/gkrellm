@@ -41,7 +41,7 @@ Inne funkcje:
 %setup -q -n gkrellm-0.6.8
 
 %build
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
