@@ -16,9 +16,9 @@ Source4:	gkrellmd.sysconf
 Patch0:		%{name}-gkrellmd_privs.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,6 +74,8 @@ swap, файлових систем, звертань з ╕нтернету, APM, поштових скриньок та
 Summary:	gkrellmd - The GNU Krell Monitors Server
 Summary(pl):	gkrellmd - Serwer monitorСw GKrellM
 Group:		Daemons
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 
 %description gkrellmd
 gkrellmd listens for connections from gkrellm clients.  When a gkrellm
@@ -157,7 +159,7 @@ if [ "$1" = "0" ]; then
 	/sbin/chkconfig --del gkrellmd
 fi
 
-%files  -f %{name}.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc Changelog* README Themes.html
 %attr(755,root,root) %{_bindir}/gkrellm
