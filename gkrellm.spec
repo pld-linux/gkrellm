@@ -11,7 +11,7 @@ Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
-Icon:		gkrellm.cpm
+Icon:		gkrellm.xpm
 URL:		http://web.wt.net/~billw/gkrellm/gkrellm.html
 BuildRequires:	gtk+-devel >= 1.2
 BuildRequires:	imlib-devel
