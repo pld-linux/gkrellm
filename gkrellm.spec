@@ -1,13 +1,13 @@
 Summary:	Multiple stacked system monitors: 1 process
 Name:		gkrellm
-Version:	1.0.7
+Version:	1.0.8
 Release:	1
 License:	GPL
 Vendor:		Bill Wilson <billw@wt.net>
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	http://newweb.wt.net/~billw/%{name}-%{version}.tar.gz
+Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
