@@ -1,6 +1,6 @@
 Summary:	Multiple stacked system monitors: 1 process
 Name:		gkrellm
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	GPL
 Vendor:		Bill Wilson <billw@wt.net>
