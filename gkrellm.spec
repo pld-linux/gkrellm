@@ -2,7 +2,7 @@ Summary:	Multiple stacked system monitors: 1 process
 Summary(pl):	Zestaw wielu monitorów systemu(ów) w jednym procesie
 Name:		gkrellm
 Version:	1.2.1
-Release:	1
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -20,6 +20,7 @@ BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 GKrellM charts SMP CPU, load, Disk, and all active net interfaces
