@@ -31,7 +31,7 @@ OPTIONS="-d"
 if is_yes "${NETWORKING}"; then
 	if [ ! -f /var/lock/subsys/network ]; then
 		# nls "ERROR: Networking is down. %s can't be run." gkrellmd
-		msg_network_down gkrellmd $OPTIONS
+		msg_network_down gkrellmd
 		exit 1
 	fi
 else
@@ -44,7 +44,7 @@ case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/gkrellmd ]; then
 		msg_starting gkrellmd
-		daemon gkrellmd
+		daemon gkrellmd $OPTIONS
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/gkrellmd
 	else
