@@ -128,11 +128,7 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm2} \
 	$RPM_BUILD_ROOT%{_datadir}/locale
 
 %{__make} install \
-	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
-	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir} \
-	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1 \
-	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale \
-	PKGCONFIGDIR=$RPM_BUILD_ROOT%{_pkgconfigdir}
+	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix}
 
 %{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 %{__install} %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
