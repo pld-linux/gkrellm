@@ -1,14 +1,18 @@
 Summary:	Multiple stacked system monitors: 1 process
 Name:		gkrellm
 Version:	1.0.6
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Bill Wilson <billw@wt.net>
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
+Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
+Icon:		gkrellm.cpm
+URL:		http://web.wt.net/~billw/gkrellm/gkrellm.html
 BuildRequires:	gtk+-devel >= 1.2
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,11 +65,15 @@ Pliki nag³ówkowe do gkrellm.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm} \
-	$RPM_BUILD_ROOT{%{_libdir},%{_datadir}}/gkrellm
+	$RPM_BUILD_ROOT{%{_libdir},%{_datadir}}/gkrellm \
+	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}}
 
 %{__make} install \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
 	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir}
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 gzip -9nf Changelog README Themes.html gkrellmrc
 
@@ -78,6 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gkrellm
 %dir %{_libdir}/gkrellm
 %dir %{_datadir}/gkrellm
+%{_applnkdir}/System/*
+%{_pixmapsdir}/*
 
 %files devel
 %defattr(644,root,root,755)
