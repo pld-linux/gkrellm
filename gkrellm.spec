@@ -1,18 +1,20 @@
 # RPM spec file for GKrellm
 
-Summary:	Multiple stacked system monitors: 1 process.
-Name:		gkrellm
-Version:	0.6.8
-Release:	1
-License:	GPL
-Group:		X11/Utilities
-Group(pl):	X11/Narzêdzia
-Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
-Vendor:		Bill Wilson <billw@wt.net>
-#BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Summary:  Multiple stacked system monitors: 1 process.
+Name:     gkrellm
+Version:  0.10.5
+Release:  1
+License:  GPL
+Group:    X11/Utilities
+Group(pl):  X11/Narzêdzia
+Source0:  http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
+Requires: gtk+ >= 1.2
+Requires: glib >= 1.2
+Requires: imlib
+Vendor:   Bill Wilson <billw@wt.net>
+BuildRoot:  %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 GKrellM charts SMP CPU, load, Disk, and all active net interfaces
@@ -38,17 +40,23 @@ Inne funkcje:
  - Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
 
 %prep
-%setup -q -n gkrellm-0.6.8
+%setup -q
 
 %build
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install INSTALLDIR=%{_prefix}
+install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm}
+%{__make} install INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir}
+gzip -9nf COPYRIGHT Changelog README INSTALL gkrellmrc
+
+%clean
+	rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYRIGHT Changelog README Themes
-%doc examples gkrellm_theme.cfg gkrellmrc
-%{_prefix}/bin/gkrellm
+%doc {COPYRIGHT,Changelog,README,INSTALL,gkrellmrc}.gz
+%doc Themes.html Changelog-plugins.html Changelog-themes.html
+%attr(755,root,root) %{_bindir}/gkrellm
+%{_includedir}/*
