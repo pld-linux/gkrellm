@@ -1,27 +1,29 @@
+# RPM spec file for GKrellm
+
 Summary:	Multiple stacked system monitors: 1 process.
 Name:		gkrellm
-Version:	0.6.1
+Version:	0.6.8
 Release:	1
 Copyright:	GPL
 Group:		X11/Utilities
+Source:		http://web.wt.net/~billw/gkrellm/gkrellm-0.6.8.tar.gz
 Vendor:		Bill Wilson <billw@wt.net>
-Source:		Fhttp://web.wt.net/~billw/gkrellm/%{name}-%{version}.tgz
-BuildRoot:	/tmp/%{name}-%{version}-root
+Packager:	Bill Wilson <billw@wt.net>
+#BuildRoot:	<Where to stage it>
 
 %description
-GKrellM charts CPU, Disk, and all active net interfaces automatically.
-An on/off button and online timer for the PPP interface is provided.
-Meters for memory and swap usage as well as a system uptime monitor
+GKrellM charts SMP CPU, load, Disk, and all active net interfaces
+automatically. An on/off button and online timer for the PPP interface
+is provided. Includes meters for memory and swap usage, an uptime
+monitor, a hostname label, and a clock/calendar.
 are provided.  Additional features are:
 
-  * Clicking on left or right frame slides GKrellM shut to gain screen space.
   * Autoscaling grid lines with configurable grid line resolution.
   * LED indicators for the net interfaces.
-  * Configurable chart sizes.
-  * 2 example alternate themes provided in /usr/doc/gkrellm/examples.
+  * A gui popup for configuration of chart sizes and resolutions.
 
 %prep
-%setup -q
+%setup -q -n gkrellm-0.6.8
 
 %build
 make
@@ -30,6 +32,6 @@ make
 make install INSTALLDIR=/usr/X11R6
 
 %files
-%doc COPYRIGHT Changelog README TODO Themes
-%doc examples gkrellm_theme.cfg gkrellmrc install-examples
+%doc COPYRIGHT Changelog README Themes
+%doc examples gkrellm_theme.cfg gkrellmrc
 /usr/X11R6/bin/gkrellm
