@@ -1,18 +1,18 @@
 Summary:	Multiple stacked system monitors: 1 process
 Name:		gkrellm
-Version:	1.0.6
-Release:	3
+Version:	1.0.7
+Release:	1
 License:	GPL
 Vendor:		Bill Wilson <billw@wt.net>
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
+Source0:	http://newweb.wt.net/~billw/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
 Icon:		gkrellm.xpm
-URL:		http://web.wt.net/~billw/gkrellm/gkrellm.html
+URL:		http://www.gkrellm.net/
 BuildRequires:	gtk+-devel >= 1.2
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,7 +71,8 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm} \
 
 %{__make} install \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
-	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir}
+	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir} \
+	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -85,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/gkrellm
+%{_mandir}/man1/*
 %dir %{_libdir}/gkrellm
 %dir %{_datadir}/gkrellm
 %{_applnkdir}/System/*
