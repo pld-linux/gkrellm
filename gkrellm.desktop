@@ -2,6 +2,7 @@
 Name=Gkrellm
 Comment=Multiple stacked modular system monitors
 Comment[pl]=Modularna aplikacja do monitorowania
+Comment[ja]=GNOME krelly作のシステムモニタ
 Exec=gkrellm
 Icon=gkrellm.png
 Terminal=0
