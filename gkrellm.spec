@@ -43,7 +43,7 @@ up³yn±³ od w³±czenia maszyny, etykietê nazwy hosta oraz zegar i
 kalendarz. Inne funkcje:
 
  - Samoskaluj±ce siê linie siatki o konfigurowanej gêsto¶ci
- - Wy¶wietlacze imitujace diody LED dla interfejsów sieciowych
+ - Wy¶wietlacze imituj±ce diody LED dla interfejsów sieciowych
  - Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
 
 %description -l pt_BR
