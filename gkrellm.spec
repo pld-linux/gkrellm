@@ -2,7 +2,7 @@ Summary:	Multiple stacked system monitors: 1 process
 Summary(pl):	Zestaw wielu monitorów systemu(ów) w jednym procesie
 Summary(pt_BR):	Monitoração de atividades do sistema
 Name:		gkrellm
-Version:	1.2.6
+Version:	1.2.8
 Release:	1
 License:	GPL
 Group:		X11/Applications
