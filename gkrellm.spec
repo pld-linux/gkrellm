@@ -39,14 +39,14 @@ Additional features are:
   - A gui popup for configuration of chart sizes and resolutions.
 
 %description -l pl
-GKrellM automatycznie wyswietla wykresy aktywno¶ci SMP CPU,
+GKrellM automatycznie wy¶wietla wykresy aktywno¶ci SMP CPU,
 obci±¿enia, dysku oraz aktywnych interfejsów sieciowych. Jest równie¿
 przycisk wy³±cznika, czasomierz dla interfejsu PPP, mierniki
 wykorzystania pamiêci oraz partycji wymiany, wy¶wietlacz czasy, który
 up³yn±³ od w³±czenia maszyny, etykietê nazwy hosta oraz zegar i
 kalendarz. Inne funkcje:
 
- - Samoskaluj±ce sie linie siatki o konfigurowanej gêsto¶ci
+ - Samoskaluj±ce siê linie siatki o konfigurowanej gêsto¶ci
  - Wy¶wietlacze imitujace diody LED dla interfejsów sieciowych
  - Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
 
