@@ -4,14 +4,12 @@ Summary(pt_BR):	MonitoraГЦo de atividades do sistema
 Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	2.1.12a
-Release:	2
+Version:	2.1.13
+Release:	1
 License:	GPL
 Group:		X11/Applications
-#Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
-#Temporary disabled source, and uploaded via dropin cause link failure
-Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	cb00609d4ee7e26594bfc54195e5210c
+Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
+# Source0-md5:	70d42de529c3e183e74e3b1d69b44873
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	gkrellmd.init
@@ -115,7 +113,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 Файли C хедер╕в для GKrellM - для розробки та п╕дтримки модул╕в.
 
 %prep
-%setup -q -n %{name}-2.1.12
+%setup -q
 %patch -p1
 
 %build
