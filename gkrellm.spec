@@ -1,7 +1,7 @@
 Summary:	Multiple stacked system monitors: 1 process
 Summary(pl):	Zestaw wielu monitorów systemu(ów) w jednym procesie
 Name:		gkrellm
-Version:	1.2.2
+Version:	1.2.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
