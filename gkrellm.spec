@@ -125,7 +125,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %build
 %{__make} \
 	OPTFLAGS="%{rpmcflags}" \
-	PKGCONFIGDIR=%{_libdir}/pkgconfig \
+	PKGCONFIGDIR=%{_pkgconfigdir} \
 	INSTALLROOT=%{_prefix}
 
 %install
@@ -138,14 +138,14 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
 
 %{__make} install \
 	%{?debug:STRIP=} \
-	PKGCONFIGDIR=$RPM_BUILD_ROOT%{_libdir}/pkgconfig \
+	PKGCONFIGDIR=$RPM_BUILD_ROOT%{_pkgconfigdir} \
 	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix}
 
-%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-%{__install} %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-%{__install} -D %{SOURCE3} $RPM_BUILD_ROOT%{_initrddir}/gkrellmd
-%{__install} -D %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/gkrellmd
-%{__install} -D server/gkrellmd.conf $RPM_BUILD_ROOT%{_sysconfdir}/gkrellmd.conf
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+install -D %{SOURCE3} $RPM_BUILD_ROOT%{_initrddir}/gkrellmd
+install -D %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/gkrellmd
+install -D server/gkrellmd.conf $RPM_BUILD_ROOT%{_sysconfdir}/gkrellmd.conf
 
 %find_lang %{name}
 
