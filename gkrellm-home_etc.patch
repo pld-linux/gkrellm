@@ -1,0 +1,36 @@
+diff -Nru gkrellm-2.1.21.orig/src/mail.c gkrellm-2.1.21/src/mail.c
+--- gkrellm-2.1.21.orig/src/mail.c	2003-10-13 06:12:17.000000000 +0200
++++ gkrellm-2.1.21/src/mail.c	2003-11-19 12:08:47.000000000 +0100
+@@ -2216,7 +2216,7 @@
+ 	if (*(account->path) == '~')
+ 		{
+ 		account->homedir_path = account->path;
+-		account->path = g_strdup_printf("%s%s", gkrellm_homedir(),
++		account->path = g_strdup_printf("%s%s", g_get_home_dir(),
+ 						account->homedir_path + 1);
+ 		}
+ 	if (g_file_test(account->path, G_FILE_TEST_IS_DIR))
+@@ -2247,7 +2247,7 @@
+ 		if (*(account->path) == '~')
+ 			{
+ 			account->homedir_path = account->path;
+-			account->path = g_strdup_printf("%s%s", gkrellm_homedir(),
++			account->path = g_strdup_printf("%s%s", g_get_home_dir(),
+ 							account->homedir_path + 1);
+ 			}
+ 		if (account->mboxtype == MBOX_MAILDIR)
+diff -Nru gkrellm-2.1.21.orig/src/utils.c gkrellm-2.1.21/src/utils.c
+--- gkrellm-2.1.21.orig/src/utils.c	2003-07-23 23:57:52.000000000 +0200
++++ gkrellm-2.1.21/src/utils.c	2003-11-19 12:06:56.000000000 +0100
+@@ -241,9 +241,9 @@
+ gchar *
+ gkrellm_homedir(void)
+ 	{
+-	gchar	*homedir;
++	gchar	*homedir = getenv("HOME_ETC");
+ 
+-	homedir = (gchar *) g_get_home_dir();
++	if (!homedir) homedir = (gchar *) g_get_home_dir();
+ 	if (!homedir)
+ 		homedir = ".";
+ 	return homedir;
