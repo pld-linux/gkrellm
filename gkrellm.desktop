@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Gkrellm
+Comment=Multiple stacked modular system monitors
+Comment=Modularna aplikacja do monitorowania
+Exec=gkrellm
+Icon=gkrellm.png
+Terminal=0
+Type=Application
