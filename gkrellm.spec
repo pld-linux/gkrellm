@@ -4,7 +4,7 @@ Summary(pt_BR):	MonitoraГЦo de atividades do sistema
 Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	1.2.12
+Version:	1.2.13
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -103,7 +103,9 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %build
 ./enable_nls
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}" \
+	LOCALEDIR="%{_datadir}/locale"
 
 %install
 rm -rf $RPM_BUILD_ROOT
