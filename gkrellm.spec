@@ -4,19 +4,18 @@ Summary(pt_BR):	MonitoraГЦo de atividades do sistema
 Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	1.2.13
+Version:	2.1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.gz
+Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
-BuildRequires:	glib-devel >= 1.2
-BuildRequires:	gtk+-devel >= 1.2
-BuildRequires:	imlib-devel
+BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -79,8 +78,7 @@ Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
 Summary(ru):	Файлы C хедеров для GKrellM
 Summary(uk):	Файли C хедер╕в для GKrellM
 Group:		X11/Development/Libraries
-Requires:	gtk+-devel
-Requires:	imlib-devel
+Requires:	gtk+2-devel
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
@@ -102,10 +100,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %patch -p1
 
 %build
-./enable_nls
-%{__make} \
-	CFLAGS="%{rpmcflags}" \
-	LOCALEDIR="%{_datadir}/locale"
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -123,9 +118,6 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm} \
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf Changelog Changelog-plugins.html Changelog-themes.html \
-	README Themes.html
-
 %find_lang %{name}
 
 %clean
@@ -133,8 +125,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files  -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc Changelog* README Themes.html
 %attr(755,root,root) %{_bindir}/gkrellm
+%attr(755,root,root) %{_bindir}/gkrellmd
 %{_mandir}/man1/*
 %dir %{_libdir}/gkrellm
 %dir %{_datadir}/gkrellm
