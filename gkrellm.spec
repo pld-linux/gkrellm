@@ -4,11 +4,12 @@ Summary(pt_BR):	MonitoraГЦo de atividades do sistema
 Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	2.1.10
+Version:	2.1.12a
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
+# Source0-md5:	cb00609d4ee7e26594bfc54195e5210c
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	gkrellmd.init
@@ -111,7 +112,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 Файли C хедер╕в для GKrellM - для розробки та п╕дтримки модул╕в.
 
 %prep
-%setup -q
+%setup -q -n %{name}-2.1.12
 
 %build
 %{__make} CFLAGS="%{rpmcflags}"
@@ -128,7 +129,8 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm2} \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
 	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1 \
-	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale
+	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale \
+	PKGCONFIGDIR=$RPM_BUILD_ROOT%{_pkgconfigdir}
 
 %{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 %{__install} %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -179,3 +181,4 @@ fi
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
+%{_pkgconfigdir}/*
