@@ -16,6 +16,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	gkrellmd.init
 Source4:	gkrellmd.sysconf
+Patch0:		%{name}-opt.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
@@ -115,21 +116,23 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
 %setup -q -n %{name}-2.1.12
+%patch -p1
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags}" \
+	OPTFLAGS="%{rpmcflags}" \
 	INSTALLROOT=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm2} \
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
 	$RPM_BUILD_ROOT%{_libdir}/gkrellm2{,/plugins} \
 	$RPM_BUILD_ROOT%{_datadir}/gkrellm2 \
 	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/locale
 
 %{__make} install \
+	%{?debug:STRIP=} \
 	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix}
 
 %{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System

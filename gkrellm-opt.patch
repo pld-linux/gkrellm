@@ -1,0 +1,12 @@
+--- gkrellm-2.1.12/src/Makefile.orig	2003-06-03 18:50:12.000000000 +0200
++++ gkrellm-2.1.12/src/Makefile	2003-06-10 21:54:31.000000000 +0200
+@@ -22,7 +22,8 @@
+ 
+ PKG_LIB = `$(PKG_CONFIG) --libs gtk+-2.0 gthread-2.0`
+ 
+-FLAGS = -O2 -I.. $(PKG_INCLUDE) $(GTOP_INCLUDE)
++OPTFLAGS = -O2
++FLAGS = $(OPTFLAGS) -I.. $(PKG_INCLUDE) $(GTOP_INCLUDE)
+ FLAGS+= $(PTHREAD_INC)
+ 
+ LIBS = $(PKG_LIB) $(GTOP_LIBS) $(SMC_LIBS) $(SYS_LIBS)
