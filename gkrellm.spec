@@ -8,8 +8,8 @@ Version:	2.1.12a
 Release:	1
 License:	GPL
 Group:		X11/Applications
-# Source0-md5:	cb00609d4ee7e26594bfc54195e5210c
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
+# Source0-md5:	cb00609d4ee7e26594bfc54195e5210c
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	gkrellmd.init
