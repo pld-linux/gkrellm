@@ -51,7 +51,7 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm}
 	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
 	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir}
 
-gzip -9nf COPYRIGHT Changelog README Themes.html INSTALL gkrellmrc
+gzip -9nf Changelog README Themes.html gkrellmrc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
