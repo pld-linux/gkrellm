@@ -65,10 +65,10 @@ Requires:	imlib-devel
 %description devel
 gkrellm header files for gkrellm development and plugin support.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe do gkrellm.
 
-%description -l pt_BR devel
+%description devel -l pt_BR
 Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
