@@ -1,9 +1,9 @@
 Summary:	Multiple stacked system monitors: 1 process
+Summary(pl):	Zestaw wielu monitorów systemu(ów) w jednym procesie
 Name:		gkrellm
-Version:	1.0.8
+Version:	1.2.1
 Release:	1
 License:	GPL
-Vendor:		Bill Wilson <billw@wt.net>
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
@@ -13,8 +13,10 @@ Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
+BuildRequires:	glib-devel >= 1.2
 BuildRequires:	gtk+-devel >= 1.2
 BuildRequires:	imlib-devel
+BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -61,28 +63,34 @@ Pliki nag³ówkowe do gkrellm.
 %patch -p1
 
 %build
+./enable_nls
 %{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm} \
 	$RPM_BUILD_ROOT{%{_libdir},%{_datadir}}/gkrellm \
-	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}}
+	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT%{_datadir}/locale
 
 %{__make} install \
 	INSTALLDIR=$RPM_BUILD_ROOT%{_bindir} \
 	INCLUDEDIR=$RPM_BUILD_ROOT%{_includedir} \
-	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
+	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf Changelog README Themes.html gkrellmrc
+gzip -9nf Changelog Changelog-plugins.html Changelog-themes.html \
+	README Themes.html
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files  -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/gkrellm
