@@ -1,8 +1,9 @@
 Summary:	Multiple stacked system monitors: 1 process
 Summary(pl):	Zestaw wielu monitorów systemu(ów) w jednym procesie
+Summary(pt_BR):	Monitoração de atividades do sistema
 Name:		gkrellm
 Version:	1.2.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -45,12 +46,28 @@ kalendarz. Inne funkcje:
  - Wy¶wietlacze imitujace diody LED dla interfejsów sieciowych
  - Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
 
+%description -l pt_BR
+O GKrellM mostra gráficos com dados sobre CPUs, carga da máquina,
+discos e todas as interfaces de rede ativas, automaticamente. Um botão
+liga/desliga e um temporizador para a interface PPP estão presentes.
+Monitores para uso de memória e área de troca, sistemas de arquivos,
+conexões Internet, para a bateria de computadores portáteis, para
+caixas de correio no estilo mbox e para a temperatura da CPU. Também
+inclui um monitor de tempo de atividade da máquina, um rótulo como o
+nome da máquina e um relógio e calendário.
+
 %package devel
 Summary:	gkrellm include files
 Summary(pl):	Pliki nag³ówkowe do gkrellm
+Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	gtk+-devel
 
 %description devel
@@ -58,6 +75,9 @@ gkrellm header files for gkrellm development and plugin support.
 
 %description -l pl devel
 Pliki nag³ówkowe do gkrellm.
+
+%description -l pt_BR devel
+Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
 %setup -q
