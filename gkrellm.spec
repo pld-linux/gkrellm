@@ -4,7 +4,7 @@ Summary(pt_BR):	MonitoraГЦo de atividades do sistema
 Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	2.1.3
+Version:	2.1.5
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -14,8 +14,8 @@ Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
-BuildRequires:	glib2-devel >= 2.1.3
-BuildRequires:	gtk+2-devel >= 2.1.3
+BuildRequires:	glib2-devel >= 2.2.0
+BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
