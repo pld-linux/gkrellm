@@ -5,10 +5,10 @@ Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
 Version:	2.0.0
-Release:	pre0.12
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}-pre0.12.tar.bz2
+Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-paths_fix.patch
@@ -98,11 +98,10 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 Файли C хедер╕в для GKrellM - для розробки та п╕дтримки модул╕в.
 
 %prep
-%setup -q -n %{name}-%{version}-%{release}
+%setup -q
 %patch -p1
 
 %build
-./enable_nls
 %{__make} CFLAGS="%{rpmcflags}"
 
 %install
@@ -133,6 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/gkrellm
+%attr(755,root,root) %{_bindir}/gkrellmd
 %{_mandir}/man1/*
 %dir %{_libdir}/gkrellm
 %dir %{_datadir}/gkrellm
