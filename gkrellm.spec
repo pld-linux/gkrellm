@@ -8,7 +8,9 @@ Version:	2.1.13
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
+# From http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
+# But it seems to be blocked from some hosts.
+Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	70d42de529c3e183e74e3b1d69b44873
 Source1:	%{name}.desktop
 Source2:	%{name}.png
