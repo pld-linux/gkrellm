@@ -10,8 +10,7 @@ License:	GPL
 Group:		X11/Applications
 # From http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
 # But it seems to be blocked from some hosts.
-#Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}.tar.bz2
-Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
+Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	55644afe628dc345d90d022d8ae7ca99
 Source1:	%{name}.desktop
 Source2:	%{name}.png
