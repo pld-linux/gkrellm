@@ -45,7 +45,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install INSTALLDIR=%{_prefix}
+%{__make} install INSTALLDIR=%{_prefix}
 
 %files
 %defattr(644,root,root,755)
