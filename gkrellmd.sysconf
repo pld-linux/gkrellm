@@ -1,0 +1,8 @@
+# configuration for gkrellmd
+
+# additional command line options
+OPTIONS="-d"
+
+# define nice level
+SERVICE_RUN_NICE_LEVEL="+1"
+

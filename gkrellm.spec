@@ -5,12 +5,15 @@ Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
 Version:	2.1.5
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://web.wt.net/~billw/gkrellm/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Source3:	gkrellmd.init
+Source4:	gkrellmd.sysconf
+Patch0:		%{name}-gkrellmd_privs.patch
 Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
 BuildRequires:	glib2-devel >= 2.2.0
@@ -67,6 +70,21 @@ swap, файлових систем, звертань з ╕нтернету, APM, поштових скриньок та
 температури CPU. Включа╓ також мон╕тор uptime, м╕тку ╕мен╕ хоста,
 годинник та календар.
 
+%package gkrellmd
+Summary:	gkrellmd - The GNU Krell Monitors Server
+Summary(pl):	gkrellmd - Serwer monitorСw GKrellM
+Group:		Daemons
+
+%description gkrellmd
+gkrellmd listens for connections from gkrellm clients.  When a gkrellm
+client connects to a gkrellmd server all builtin monitors collect their
+data from the server.
+
+%description gkrellmd -l pl
+gkrellmd nasЁuchuje poЁ╠czeЯ z klientСw gkrellm.  Gdy klient gkrellm
+Ё╠czy siЙ z serwerem gkrellmd, wszystkie wbudowane monitory pobieraj╠
+dane z serwera.
+
 %package devel
 Summary:	gkrellm include files
 Summary(pl):	Pliki nagЁСwkowe do gkrellm
@@ -93,6 +111,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} CFLAGS="%{rpmcflags}"
@@ -111,25 +130,51 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_includedir}/gkrellm2} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1 \
 	LOCALEDIR=$RPM_BUILD_ROOT%{_datadir}/locale
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+%{__install} %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
+%{__install} %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+%{__install} -D %{SOURCE3} $RPM_BUILD_ROOT%{_initrddir}/gkrellmd
+%{__install} -D %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/gkrellmd
+%{__install} -D server/gkrellmd.conf $RPM_BUILD_ROOT%{_sysconfdir}/gkrellmd.conf
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post gkrellmd
+/sbin/chkconfig --add gkrellmd
+if [ -f %{_localstatedir}/lock/subsys/gkrellmd ]; then
+	%{_initrddir}/gkrellmd restart >&2
+else
+	echo "Run \"%{_initrddir}/gkrellmd start\" to start gkrellmd." >&2
+fi
+
+%preun gkrellmd
+if [ "$1" = "0" ]; then
+	if [ -f %{_localstatedir}/lock/subsys/gkrellmd ]; then
+		%{_initrddir}/gkrellmd stop
+	fi
+	/sbin/chkconfig --del gkrellmd
+fi
+
 %files  -f %{name}.lang
 %defattr(644,root,root,755)
 %doc Changelog* README Themes.html
 %attr(755,root,root) %{_bindir}/gkrellm
-%attr(755,root,root) %{_bindir}/gkrellmd
-%{_mandir}/man1/*
+%{_mandir}/man1/gkrellm*
 %dir %{_libdir}/gkrellm2
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
 %{_applnkdir}/System/*
 %{_pixmapsdir}/*
+
+%files gkrellmd
+%defattr(644,root,root,755)
+%{_mandir}/man1/gkrellmd*
+%attr(755,root,root) %{_bindir}/gkrellmd
+%attr(755,root,root) %{_initrddir}/gkrellmd
+%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/sysconfig/gkrellmd
+%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/gkrellmd.conf
 
 %files devel
 %defattr(644,root,root,755)
