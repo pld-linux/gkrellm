@@ -8,12 +8,12 @@ Version:	2.2.7
 Release:	2
 License:	GPL
 Group:		X11/Applications
-Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz	
+Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
 # Source0-md5:	b8b332288bdd995971246034ccd314da
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Source3:	gkrellmd.init
-Source4:	gkrellmd.sysconf
+Source3:	%{name}d.init
+Source4:	%{name}d.sysconf
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
 Icon:		gkrellm.xpm
@@ -78,16 +78,16 @@ swap, ∆¡ Ãœ◊…» ”…”‘≈Õ, ⁄◊≈“‘¡Œÿ ⁄ ¶Œ‘≈“Œ≈‘’, APM, –œ€‘œ◊…» ”À“…ŒÿœÀ ‘¡
 Summary:	gkrellmd - The GNU Krell Monitors Server
 Summary(pl):	gkrellmd - Serwer monitorÛw GKrellM
 Group:		Daemons
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 
 %description gkrellmd
-gkrellmd listens for connections from gkrellm clients.  When a gkrellm
-client connects to a gkrellmd server all builtin monitors collect their
-data from the server.
+gkrellmd listens for connections from gkrellm clients. When a gkrellm
+client connects to a gkrellmd server all builtin monitors collect
+their data from the server.
 
 %description gkrellmd -l pl
-gkrellmd nas≥uchuje po≥±czeÒ z klientÛw gkrellm.  Gdy klient gkrellm
+gkrellmd nas≥uchuje po≥±czeÒ z klientÛw gkrellm. Gdy klient gkrellm
 ≥±czy siÍ z serwerem gkrellmd, wszystkie wbudowane monitory pobieraj±
 dane z serwera.
 
@@ -182,8 +182,8 @@ fi
 %{_mandir}/man1/gkrellmd.*
 %attr(755,root,root) %{_bindir}/gkrellmd
 %attr(755,root,root) %{_initrddir}/gkrellmd
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/sysconfig/gkrellmd
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/gkrellmd.conf
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/gkrellmd
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gkrellmd.conf
 
 %files devel
 %defattr(644,root,root,755)
