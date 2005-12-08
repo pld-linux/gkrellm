@@ -57,7 +57,7 @@ case "$1" in
 		rm -f /var/lock/subsys/gkrellmd
 	else
 		msg_not_running gkrellmd
-	fi	
+	fi
         ;;
   restart|force-reload)
         $0 stop
