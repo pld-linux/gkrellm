@@ -16,7 +16,6 @@ Source3:	%{name}d.init
 Source4:	%{name}d.sysconf
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
-Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
