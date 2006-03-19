@@ -22,6 +22,7 @@ BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gnutls-devel >= 1.2.5
 BuildRequires:	gtk+2-devel >= 2:2.2.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,11 +30,11 @@ GKrellM charts SMP CPU, load, Disk, and all active net interfaces
 automatically. An on/off button and online timer for the PPP interface
 is provided. Includes meters for memory and swap usage, an uptime
 monitor, a hostname label, and a clock/calendar. are provided.
-Additional features are:
 
-  - Autoscaling grid lines with configurable grid line resolution.
-  - LED indicators for the net interfaces.
-  - A gui popup for configuration of chart sizes and resolutions.
+Additional features are:
+- Autoscaling grid lines with configurable grid line resolution.
+- LED indicators for the net interfaces.
+- A gui popup for configuration of chart sizes and resolutions.
 
 %description -l pl
 GKrellM automatycznie wy¶wietla wykresy aktywno¶ci SMP CPU,
@@ -41,11 +42,12 @@ obci±¿enia, dysku oraz aktywnych interfejsów sieciowych. Jest równie¿
 przycisk wy³±cznika, czasomierz dla interfejsu PPP, mierniki
 wykorzystania pamiêci oraz partycji wymiany, wy¶wietlacz czasy, który
 up³yn±³ od w³±czenia maszyny, etykietê nazwy hosta oraz zegar i
-kalendarz. Inne funkcje:
+kalendarz.
 
- - Samoskaluj±ce siê linie siatki o konfigurowanej gêsto¶ci
- - Wy¶wietlacze imituj±ce diody LED dla interfejsów sieciowych
- - Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
+Inne funkcje:
+- Samoskaluj±ce siê linie siatki o konfigurowanej gêsto¶ci
+- Wy¶wietlacze imituj±ce diody LED dla interfejsów sieciowych
+- Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
 
 %description -l pt_BR
 O GKrellM mostra gráficos com dados sobre CPUs, carga da máquina,
@@ -151,17 +153,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post gkrellmd
 /sbin/chkconfig --add gkrellmd
-if [ -f %{_localstatedir}/lock/subsys/gkrellmd ]; then
-	%{_initrddir}/gkrellmd restart >&2
-else
-	echo "Run \"%{_initrddir}/gkrellmd start\" to start gkrellmd." >&2
-fi
+%service gkrellmd restart
 
 %preun gkrellmd
 if [ "$1" = "0" ]; then
-	if [ -f %{_localstatedir}/lock/subsys/gkrellmd ]; then
-		%{_initrddir}/gkrellmd stop
-	fi
+	%service gkrellmd stop
 	/sbin/chkconfig --del gkrellmd
 fi
 
