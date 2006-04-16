@@ -99,7 +99,7 @@ Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
 Summary(ru):	Файлы C хедеров для GKrellM
 Summary(uk):	Файли C хедер╕в для GKrellM
 Group:		X11/Development/Libraries
-Requires:	gtk+2-devel
+Requires:	gtk+2-devel >= 2:2.2.0
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
