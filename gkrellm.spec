@@ -4,25 +4,25 @@ Summary(pt_BR):	Monitoração de atividades do sistema
 Summary(ru):	GKrellM - ÜÔÏ ÓÔÅË ÓÉÓÔÅÍÎÙÈ ÍÏÎÉÔÏÒÏ× × ÒÁÍËÁÈ ÏÄÎÏÇÏ ÐÒÏÃÅÓÓÁ
 Summary(uk):	GKrellM - ÃÅ ÓÔÅË ÓÉÓÔÅÍÎÉÈ ÍÏÎ¦ÔÏÒ¦× Õ ÒÁÍËÁÈ ÏÄÎÏÇÏ ÐÒÏÃÅÓÕ
 Name:		gkrellm
-Version:	2.2.7
-Release:	2
+Version:	2.2.9
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz	
-# Source0-md5:	b8b332288bdd995971246034ccd314da
+Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
+# Source0-md5:	27ef6961440db14ce54ecd4c8a841a08
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Source3:	gkrellmd.init
-Source4:	gkrellmd.sysconf
+Source3:	%{name}d.init
+Source4:	%{name}d.sysconf
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
-Icon:		gkrellm.xpm
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gnutls-devel >= 1.2.5
 BuildRequires:	gtk+2-devel >= 2:2.2.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,11 +30,11 @@ GKrellM charts SMP CPU, load, Disk, and all active net interfaces
 automatically. An on/off button and online timer for the PPP interface
 is provided. Includes meters for memory and swap usage, an uptime
 monitor, a hostname label, and a clock/calendar. are provided.
-Additional features are:
 
-  - Autoscaling grid lines with configurable grid line resolution.
-  - LED indicators for the net interfaces.
-  - A gui popup for configuration of chart sizes and resolutions.
+Additional features are:
+- Autoscaling grid lines with configurable grid line resolution.
+- LED indicators for the net interfaces.
+- A gui popup for configuration of chart sizes and resolutions.
 
 %description -l pl
 GKrellM automatycznie wy¶wietla wykresy aktywno¶ci SMP CPU,
@@ -42,11 +42,12 @@ obci±¿enia, dysku oraz aktywnych interfejsów sieciowych. Jest równie¿
 przycisk wy³±cznika, czasomierz dla interfejsu PPP, mierniki
 wykorzystania pamiêci oraz partycji wymiany, wy¶wietlacz czasy, który
 up³yn±³ od w³±czenia maszyny, etykietê nazwy hosta oraz zegar i
-kalendarz. Inne funkcje:
+kalendarz.
 
- - Samoskaluj±ce siê linie siatki o konfigurowanej gêsto¶ci
- - Wy¶wietlacze imituj±ce diody LED dla interfejsów sieciowych
- - Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
+Inne funkcje:
+- Samoskaluj±ce siê linie siatki o konfigurowanej gêsto¶ci
+- Wy¶wietlacze imituj±ce diody LED dla interfejsów sieciowych
+- Narzêdzie gui do konfiguracji rozmiarów wykresów i rozdzielczo¶ci
 
 %description -l pt_BR
 O GKrellM mostra gráficos com dados sobre CPUs, carga da máquina,
@@ -78,16 +79,16 @@ swap, ÆÁÊÌÏ×ÉÈ ÓÉÓÔÅÍ, Ú×ÅÒÔÁÎØ Ú ¦ÎÔÅÒÎÅÔÕ, APM, ÐÏÛÔÏ×ÉÈ ÓËÒÉÎØÏË ÔÁ
 Summary:	gkrellmd - The GNU Krell Monitors Server
 Summary(pl):	gkrellmd - Serwer monitorów GKrellM
 Group:		Daemons
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 
 %description gkrellmd
-gkrellmd listens for connections from gkrellm clients.  When a gkrellm
-client connects to a gkrellmd server all builtin monitors collect their
-data from the server.
+gkrellmd listens for connections from gkrellm clients. When a gkrellm
+client connects to a gkrellmd server all builtin monitors collect
+their data from the server.
 
 %description gkrellmd -l pl
-gkrellmd nas³uchuje po³±czeñ z klientów gkrellm.  Gdy klient gkrellm
+gkrellmd nas³uchuje po³±czeñ z klientów gkrellm. Gdy klient gkrellm
 ³±czy siê z serwerem gkrellmd, wszystkie wbudowane monitory pobieraj±
 dane z serwera.
 
@@ -98,7 +99,7 @@ Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
 Summary(ru):	æÁÊÌÙ C ÈÅÄÅÒÏ× ÄÌÑ GKrellM
 Summary(uk):	æÁÊÌÉ C ÈÅÄÅÒ¦× ÄÌÑ GKrellM
 Group:		X11/Development/Libraries
-Requires:	gtk+2-devel
+Requires:	gtk+2-devel >= 2:2.2.0
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
@@ -152,17 +153,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post gkrellmd
 /sbin/chkconfig --add gkrellmd
-if [ -f %{_localstatedir}/lock/subsys/gkrellmd ]; then
-	%{_initrddir}/gkrellmd restart >&2
-else
-	echo "Run \"%{_initrddir}/gkrellmd start\" to start gkrellmd." >&2
-fi
+%service gkrellmd restart
 
 %preun gkrellmd
 if [ "$1" = "0" ]; then
-	if [ -f %{_localstatedir}/lock/subsys/gkrellmd ]; then
-		%{_initrddir}/gkrellmd stop
-	fi
+	%service gkrellmd stop
 	/sbin/chkconfig --del gkrellmd
 fi
 
@@ -182,8 +177,8 @@ fi
 %{_mandir}/man1/gkrellmd.*
 %attr(755,root,root) %{_bindir}/gkrellmd
 %attr(755,root,root) %{_initrddir}/gkrellmd
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/sysconfig/gkrellmd
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/gkrellmd.conf
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/gkrellmd
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gkrellmd.conf
 
 %files devel
 %defattr(644,root,root,755)
