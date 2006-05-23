@@ -130,8 +130,8 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
-	$RPM_BUILD_ROOT%{_libdir}/gkrellm2{,/plugins} \
-	$RPM_BUILD_ROOT%{_datadir}/gkrellm2{,/themes} \
+	$RPM_BUILD_ROOT%{_libdir}/gkrellm2/plugins \
+	$RPM_BUILD_ROOT%{_datadir}/gkrellm2/themes \
 	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/locale
 
