@@ -4,18 +4,19 @@ Summary(pt_BR):	MonitoraГЦo de atividades do sistema
 Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
 Name:		gkrellm
-Version:	2.2.9
-Release:	2
+Version:	2.2.10
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
-# Source0-md5:	27ef6961440db14ce54ecd4c8a841a08
+# Source0-md5:	518666ce4c2ef5a7db637683778fe18b
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	%{name}d.init
 Source4:	%{name}d.sysconf
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
+Patch2:		%{name}-pl.po-update.patch
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
@@ -120,9 +121,11 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	OPTFLAGS="%{rpmcflags}" \
 	PKGCONFIGDIR=%{_pkgconfigdir} \
 	INSTALLROOT=%{_prefix}
@@ -142,8 +145,8 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install -D %{SOURCE3} $RPM_BUILD_ROOT%{_initrddir}/gkrellmd
-install -D %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/gkrellmd
+install -D %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/gkrellmd
+install -D %{SOURCE4} $RPM_BUILD_ROOT/etc/sysconfig/gkrellmd
 install -D server/gkrellmd.conf $RPM_BUILD_ROOT%{_sysconfdir}/gkrellmd.conf
 
 %find_lang %{name}
@@ -165,7 +168,7 @@ fi
 %defattr(644,root,root,755)
 %doc Changelog* README Themes.html
 %attr(755,root,root) %{_bindir}/gkrellm
-%{_mandir}/man1/gkrellm.*
+%{_mandir}/man1/gkrellm.1*
 %dir %{_libdir}/gkrellm2
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
@@ -175,13 +178,13 @@ fi
 
 %files gkrellmd
 %defattr(644,root,root,755)
-%{_mandir}/man1/gkrellmd.*
+%{_mandir}/man1/gkrellmd.1*
 %attr(755,root,root) %{_bindir}/gkrellmd
-%attr(755,root,root) %{_initrddir}/gkrellmd
+%attr(754,root,root) /etc/rc.d/init.d/gkrellmd
 %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/gkrellmd
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gkrellmd.conf
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/*
-%{_pkgconfigdir}/*
+%{_includedir}/gkrellm2
+%{_pkgconfigdir}/gkrellm.pc
