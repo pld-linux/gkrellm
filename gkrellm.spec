@@ -173,7 +173,7 @@ fi
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
 %dir %{_datadir}/gkrellm2/themes
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 
 %files gkrellmd
