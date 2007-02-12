@@ -1,8 +1,8 @@
 Summary:	Multiple stacked system monitors: 1 process
-Summary(pl):	Zestaw wielu monitorСw systemu(Сw) w jednym procesie
-Summary(pt_BR):	MonitoraГЦo de atividades do sistema
-Summary(ru):	GKrellM - это стек системных мониторов в рамках одного процесса
-Summary(uk):	GKrellM - це стек системних мон╕тор╕в у рамках одного процесу
+Summary(pl.UTF-8):   Zestaw wielu monitorцЁw systemu(цЁw) w jednym procesie
+Summary(pt_BR.UTF-8):   Monitoraц╖цёo de atividades do sistema
+Summary(ru.UTF-8):   GKrellM - я█я┌п╬ я│я┌п╣п╨ я│п╦я│я┌п╣п╪п╫я▀я┘ п╪п╬п╫п╦я┌п╬я─п╬п╡ п╡ я─п╟п╪п╨п╟я┘ п╬п╢п╫п╬пЁп╬ п©я─п╬я├п╣я│я│п╟
+Summary(uk.UTF-8):   GKrellM - я├п╣ я│я┌п╣п╨ я│п╦я│я┌п╣п╪п╫п╦я┘ п╪п╬п╫я√я┌п╬я─я√п╡ я┐ я─п╟п╪п╨п╟я┘ п╬п╢п╫п╬пЁп╬ п©я─п╬я├п╣я│я┐
 Name:		gkrellm
 Version:	2.2.10
 Release:	1
@@ -37,48 +37,48 @@ Additional features are:
 - LED indicators for the net interfaces.
 - A gui popup for configuration of chart sizes and resolutions.
 
-%description -l pl
-GKrellM automatycznie wy╤wietla wykresy aktywno╤ci SMP CPU,
-obci╠©enia, dysku oraz aktywnych interfejsСw sieciowych. Jest rСwnie©
-przycisk wyЁ╠cznika, czasomierz dla interfejsu PPP, mierniki
-wykorzystania pamiЙci oraz partycji wymiany, wy╤wietlacz czasy, ktСry
-upЁyn╠Ё od wЁ╠czenia maszyny, etykietЙ nazwy hosta oraz zegar i
+%description -l pl.UTF-8
+GKrellM automatycznie wyе⌡wietla wykresy aktywnoе⌡ci SMP CPU,
+obciд┘е╪enia, dysku oraz aktywnych interfejsцЁw sieciowych. Jest rцЁwnieе╪
+przycisk wyе┌д┘cznika, czasomierz dla interfejsu PPP, mierniki
+wykorzystania pamiд≥ci oraz partycji wymiany, wyе⌡wietlacz czasy, ktцЁry
+upе┌ynд┘е┌ od wе┌д┘czenia maszyny, etykietд≥ nazwy hosta oraz zegar i
 kalendarz.
 
 Inne funkcje:
-- Samoskaluj╠ce siЙ linie siatki o konfigurowanej gЙsto╤ci
-- Wy╤wietlacze imituj╠ce diody LED dla interfejsСw sieciowych
-- NarzЙdzie gui do konfiguracji rozmiarСw wykresСw i rozdzielczo╤ci
+- Samoskalujд┘ce siд≥ linie siatki o konfigurowanej gд≥stoе⌡ci
+- Wyе⌡wietlacze imitujд┘ce diody LED dla interfejsцЁw sieciowych
+- Narzд≥dzie gui do konfiguracji rozmiarцЁw wykresцЁw i rozdzielczoе⌡ci
 
-%description -l pt_BR
-O GKrellM mostra grАficos com dados sobre CPUs, carga da mАquina,
-discos e todas as interfaces de rede ativas, automaticamente. Um botЦo
-liga/desliga e um temporizador para a interface PPP estЦo presentes.
-Monitores para uso de memСria e Аrea de troca, sistemas de arquivos,
-conexУes Internet, para a bateria de computadores portАteis, para
-caixas de correio no estilo mbox e para a temperatura da CPU. TambИm
-inclui um monitor de tempo de atividade da mАquina, um rСtulo como o
-nome da mАquina e um relСgio e calendАrio.
+%description -l pt_BR.UTF-8
+O GKrellM mostra grц║ficos com dados sobre CPUs, carga da mц║quina,
+discos e todas as interfaces de rede ativas, automaticamente. Um botцёo
+liga/desliga e um temporizador para a interface PPP estцёo presentes.
+Monitores para uso de memцЁria e ц║rea de troca, sistemas de arquivos,
+conexц╣es Internet, para a bateria de computadores portц║teis, para
+caixas de correio no estilo mbox e para a temperatura da CPU. Tambц╘m
+inclui um monitor de tempo de atividade da mц║quina, um rцЁtulo como o
+nome da mц║quina e um relцЁgio e calendц║rio.
 
-%description -l ru
-GKrellM отображает графики для SMP CPU, загрузки, дисков и всех
-активных сетевых интерфейсов автоматически. Есть кнопка on/off и
-таймер времени онлайн для PPP интерфейса. Есть мониторы оперативной
-памяти и swap, файловых систем, обращений из интернета, APM, почтовых
-ящиков и температуры CPU. Включает также монитор uptime, метку имени
-хоста, часы и календарь.
+%description -l ru.UTF-8
+GKrellM п╬я┌п╬п╠я─п╟п╤п╟п╣я┌ пЁя─п╟я└п╦п╨п╦ п╢п╩я▐ SMP CPU, п╥п╟пЁя─я┐п╥п╨п╦, п╢п╦я│п╨п╬п╡ п╦ п╡я│п╣я┘
+п╟п╨я┌п╦п╡п╫я▀я┘ я│п╣я┌п╣п╡я▀я┘ п╦п╫я┌п╣я─я└п╣п╧я│п╬п╡ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦. п∙я│я┌я▄ п╨п╫п╬п©п╨п╟ on/off п╦
+я┌п╟п╧п╪п╣я─ п╡я─п╣п╪п╣п╫п╦ п╬п╫п╩п╟п╧п╫ п╢п╩я▐ PPP п╦п╫я┌п╣я─я└п╣п╧я│п╟. п∙я│я┌я▄ п╪п╬п╫п╦я┌п╬я─я▀ п╬п©п╣я─п╟я┌п╦п╡п╫п╬п╧
+п©п╟п╪я▐я┌п╦ п╦ swap, я└п╟п╧п╩п╬п╡я▀я┘ я│п╦я│я┌п╣п╪, п╬п╠я─п╟я┴п╣п╫п╦п╧ п╦п╥ п╦п╫я┌п╣я─п╫п╣я┌п╟, APM, п©п╬я┤я┌п╬п╡я▀я┘
+я▐я┴п╦п╨п╬п╡ п╦ я┌п╣п╪п©п╣я─п╟я┌я┐я─я▀ CPU. п▓п╨п╩я▌я┤п╟п╣я┌ я┌п╟п╨п╤п╣ п╪п╬п╫п╦я┌п╬я─ uptime, п╪п╣я┌п╨я┐ п╦п╪п╣п╫п╦
+я┘п╬я│я┌п╟, я┤п╟я│я▀ п╦ п╨п╟п╩п╣п╫п╢п╟я─я▄.
 
-%description -l uk
-GKrellM в╕добража╓ граф╕ки для SMP CPU, завантаження, диск╕в та вс╕х
-активних мережевих ╕нтерфейс╕в автоматично. ╢ кнопка on/off та таймер
-онлайн-часу для PPP ╕нтерфейсу. ╢ мон╕тори оперативно╖ пам'ят╕ та
-swap, файлових систем, звертань з ╕нтернету, APM, поштових скриньок та
-температури CPU. Включа╓ також мон╕тор uptime, м╕тку ╕мен╕ хоста,
-годинник та календар.
+%description -l uk.UTF-8
+GKrellM п╡я√п╢п╬п╠я─п╟п╤п╟я■ пЁя─п╟я└я√п╨п╦ п╢п╩я▐ SMP CPU, п╥п╟п╡п╟п╫я┌п╟п╤п╣п╫п╫я▐, п╢п╦я│п╨я√п╡ я┌п╟ п╡я│я√я┘
+п╟п╨я┌п╦п╡п╫п╦я┘ п╪п╣я─п╣п╤п╣п╡п╦я┘ я√п╫я┌п╣я─я└п╣п╧я│я√п╡ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╫п╬. п└ п╨п╫п╬п©п╨п╟ on/off я┌п╟ я┌п╟п╧п╪п╣я─
+п╬п╫п╩п╟п╧п╫-я┤п╟я│я┐ п╢п╩я▐ PPP я√п╫я┌п╣я─я└п╣п╧я│я┐. п└ п╪п╬п╫я√я┌п╬я─п╦ п╬п©п╣я─п╟я┌п╦п╡п╫п╬я≈ п©п╟п╪'я▐я┌я√ я┌п╟
+swap, я└п╟п╧п╩п╬п╡п╦я┘ я│п╦я│я┌п╣п╪, п╥п╡п╣я─я┌п╟п╫я▄ п╥ я√п╫я┌п╣я─п╫п╣я┌я┐, APM, п©п╬я┬я┌п╬п╡п╦я┘ я│п╨я─п╦п╫я▄п╬п╨ я┌п╟
+я┌п╣п╪п©п╣я─п╟я┌я┐я─п╦ CPU. п▓п╨п╩я▌я┤п╟я■ я┌п╟п╨п╬п╤ п╪п╬п╫я√я┌п╬я─ uptime, п╪я√я┌п╨я┐ я√п╪п╣п╫я√ я┘п╬я│я┌п╟,
+пЁп╬п╢п╦п╫п╫п╦п╨ я┌п╟ п╨п╟п╩п╣п╫п╢п╟я─.
 
 %package gkrellmd
 Summary:	gkrellmd - The GNU Krell Monitors Server
-Summary(pl):	gkrellmd - Serwer monitorСw GKrellM
+Summary(pl.UTF-8):   gkrellmd - Serwer monitorцЁw GKrellM
 Group:		Daemons
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
@@ -88,34 +88,34 @@ gkrellmd listens for connections from gkrellm clients. When a gkrellm
 client connects to a gkrellmd server all builtin monitors collect
 their data from the server.
 
-%description gkrellmd -l pl
-gkrellmd nasЁuchuje poЁ╠czeЯ z klientСw gkrellm. Gdy klient gkrellm
-Ё╠czy siЙ z serwerem gkrellmd, wszystkie wbudowane monitory pobieraj╠
+%description gkrellmd -l pl.UTF-8
+gkrellmd nasе┌uchuje poе┌д┘czeе└ z klientцЁw gkrellm. Gdy klient gkrellm
+е┌д┘czy siд≥ z serwerem gkrellmd, wszystkie wbudowane monitory pobierajд┘
 dane z serwera.
 
 %package devel
 Summary:	gkrellm include files
-Summary(pl):	Pliki nagЁСwkowe do gkrellm
-Summary(pt_BR):	Componentes para desenvolvimento com o gkrellm
-Summary(ru):	Файлы C хедеров для GKrellM
-Summary(uk):	Файли C хедер╕в для GKrellM
+Summary(pl.UTF-8):   Pliki nagе┌цЁwkowe do gkrellm
+Summary(pt_BR.UTF-8):   Componentes para desenvolvimento com o gkrellm
+Summary(ru.UTF-8):   п╓п╟п╧п╩я▀ C я┘п╣п╢п╣я─п╬п╡ п╢п╩я▐ GKrellM
+Summary(uk.UTF-8):   п╓п╟п╧п╩п╦ C я┘п╣п╢п╣я─я√п╡ п╢п╩я▐ GKrellM
 Group:		X11/Development/Libraries
 Requires:	gtk+2-devel >= 2:2.2.0
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
 
-%description devel -l pl
-Pliki nagЁСwkowe do gkrellm.
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe do gkrellm.
 
-%description devel -l pt_BR
+%description devel -l pt_BR.UTF-8
 Componentes para desenvolvimento de plugins para o gkrellm.
 
-%description devel -l ru
-Файлы C хедеров для GKrellM - для разработки и поддержки модулей.
+%description devel -l ru.UTF-8
+п╓п╟п╧п╩я▀ C я┘п╣п╢п╣я─п╬п╡ п╢п╩я▐ GKrellM - п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п╦ п©п╬п╢п╢п╣я─п╤п╨п╦ п╪п╬п╢я┐п╩п╣п╧.
 
-%description devel -l uk
-Файли C хедер╕в для GKrellM - для розробки та п╕дтримки модул╕в.
+%description devel -l uk.UTF-8
+п╓п╟п╧п╩п╦ C я┘п╣п╢п╣я─я√п╡ п╢п╩я▐ GKrellM - п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ я┌п╟ п©я√п╢я┌я─п╦п╪п╨п╦ п╪п╬п╢я┐п╩я√п╡.
 
 %prep
 %setup -q
