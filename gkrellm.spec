@@ -1,8 +1,8 @@
 Summary:	Multiple stacked system monitors: 1 process
-Summary(pl.UTF-8):   Zestaw wielu monitorów systemu(ów) w jednym procesie
-Summary(pt_BR.UTF-8):   Monitoração de atividades do sistema
-Summary(ru.UTF-8):   GKrellM - это стек системных мониторов в рамках одного процесса
-Summary(uk.UTF-8):   GKrellM - це стек системних моніторів у рамках одного процесу
+Summary(pl.UTF-8):	Zestaw wielu monitorów systemu(ów) w jednym procesie
+Summary(pt_BR.UTF-8):	Monitoração de atividades do sistema
+Summary(ru.UTF-8):	GKrellM - это стек системных мониторов в рамках одного процесса
+Summary(uk.UTF-8):	GKrellM - це стек системних моніторів у рамках одного процесу
 Name:		gkrellm
 Version:	2.2.10
 Release:	1
@@ -78,7 +78,7 @@ swap, файлових систем, звертань з інтернету, APM
 
 %package gkrellmd
 Summary:	gkrellmd - The GNU Krell Monitors Server
-Summary(pl.UTF-8):   gkrellmd - Serwer monitorów GKrellM
+Summary(pl.UTF-8):	gkrellmd - Serwer monitorów GKrellM
 Group:		Daemons
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
@@ -95,10 +95,10 @@ dane z serwera.
 
 %package devel
 Summary:	gkrellm include files
-Summary(pl.UTF-8):   Pliki nagłówkowe do gkrellm
-Summary(pt_BR.UTF-8):   Componentes para desenvolvimento com o gkrellm
-Summary(ru.UTF-8):   Файлы C хедеров для GKrellM
-Summary(uk.UTF-8):   Файли C хедерів для GKrellM
+Summary(pl.UTF-8):	Pliki nagłówkowe do gkrellm
+Summary(pt_BR.UTF-8):	Componentes para desenvolvimento com o gkrellm
+Summary(ru.UTF-8):	Файлы C хедеров для GKrellM
+Summary(uk.UTF-8):	Файли C хедерів для GKrellM
 Group:		X11/Development/Libraries
 Requires:	gtk+2-devel >= 2:2.2.0
 
