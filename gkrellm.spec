@@ -6,7 +6,7 @@ Summary(uk.UTF-8):	GKrellM - це стек системних моніторів
 Name:		gkrellm
 Version:	2.3.0
 Release:	1
-License:	GPLv3
+License:	GPL v3+
 Group:		X11/Applications
 Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
 # Source0-md5:	30d4bd45f95dfccd0782b1c600e6c9ca
