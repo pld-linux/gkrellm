@@ -20,4 +20,3 @@ diff -ru gkrellm-2.3.0/src/mail.c gkrellm-2.3.0.my/src/mail.c
  #include <pthread.h>
  #define MD5Init		MD5_Init
  #define MD5Update	MD5_Update
-Only in gkrellm-2.3.0.my/src: .mail.c.swp
