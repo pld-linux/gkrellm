@@ -1,4 +1,5 @@
 %bcond_without	gnutls	# gnutls support for mail check (instead of OpenSSL)
+%bcond_without	lm_sensors	# don't include sensors support by libsensors
 Summary:	Multiple stacked system monitors: 1 process
 Summary(pl.UTF-8):	Zestaw wielu monitorów systemu(ów) w jednym procesie
 Summary(pt_BR.UTF-8):	Monitoração de atividades do sistema
@@ -19,11 +20,13 @@ Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-gnutls.patch
+Patch4:		%{name}-lm_sensors.patch
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gtk+2-devel >= 2:2.2.0
+%{?with_lm_sensors:BuildRequires:	lm_sensors-devel}
 %{!?with_gnutls:BuildRequires:	openssl-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.268
@@ -126,6 +129,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__make} \
@@ -133,7 +137,8 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 	OPTFLAGS="%{rpmcflags}" \
 	PKGCONFIGDIR=%{_pkgconfigdir} \
 	INSTALLROOT=%{_prefix} \
-	%{!?with_gnutls:without-gnutls=yes}	
+	%{!?with_gnutls:without-gnutls=yes} \
+	%{!?with_lm_sensors:without-libsensors=yes}
 
 %install
 rm -rf $RPM_BUILD_ROOT
