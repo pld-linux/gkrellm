@@ -21,6 +21,7 @@ Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-gnutls.patch
 Patch4:		%{name}-lm_sensors.patch
+Patch5:		%{name}-ldflags.patch
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
@@ -130,11 +131,13 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
 	OPTFLAGS="%{rpmcflags}" \
+	LINK_FLAGS="%{rpmldflags}" \
 	PKGCONFIGDIR=%{_pkgconfigdir} \
 	INSTALLROOT=%{_prefix} \
 	%{!?with_gnutls:without-gnutls=yes} \
