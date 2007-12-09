@@ -1,27 +1,21 @@
 --- gkrellm-2.2.10/po/pl.po.orig	2006-10-25 03:53:20.000000000 +0200
 +++ gkrellm-2.2.10/po/pl.po	2006-11-01 13:26:07.893825000 +0100
-@@ -1,14 +1,15 @@
+@@ -1,11 +1,10 @@
+-# translation of pl.po to Polish
 -# Polish Translation of GKrellM. Copyright Przemys³aw Su³ek
+-#
 -# <pbs@linux.net.pl>, 2001. Released under the GPL.
 +# Polish Translation of GKrellM. Released under the GPL.
 +# Copyright Przemys³aw Su³ek <pbs@linux.net.pl>, 2001-2003.
 +# Jakub Bogusz <qboosh@pld-linux.org>, 2006
- #
+ # Micha³ Smoczyk <msmoczyk@wp.pl>, 2007.
  msgid ""
  msgstr ""
--"Project-Id-Version: GKrellM 2.1.18\n"
+-"Project-Id-Version: pl\n"
 +"Project-Id-Version: GKrellM 2.2.10\n"
  "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2007-07-12 15:37-0500\n"
--"PO-Revision-Date: 2003-09-12 14:44+0200\n"
--"Last-Translator: Przemys³aw Su³ek <pbs@linux.net.pl>\n"
--"Language-Team: polish <pl@li.org>\n"
-+"PO-Revision-Date: 2006-11-01 13:10+0100\n"
-+"Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
-+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
- "MIME-Version: 1.0\n"
- "Content-Type: text/plain; charset=ISO-8859-2\n"
- "Content-Transfer-Encoding: 8bit\n"
+ "POT-Creation-Date: 2007-11-27 18:25-0600\n"
+ "PO-Revision-Date: 2007-09-17 18:12+0200\n"
 @@ -249,7 +250,7 @@
  
  #: ../src/battery.c:1224
@@ -40,58 +34,17 @@
  
  #: ../src/chart.c:2292 ../src/chart.c:2449
  msgid "/Control/Auto mode sticks at peak value"
-@@ -1370,9 +1371,8 @@
- msgstr "\t$a    aktywne w tej chwili po³±czenia dla Data0\n"
- 
- #: ../src/inet.c:1786
--#, fuzzy
- msgid "\t$cN   total connections in last N minutes (or hours) for Data0\n"
--msgstr "\t$cN   razem po³±czenia w ci±gu ostatnich N minut dla Data0\n"
-+msgstr "\t$cN   razem po³±czenia w ci±gu ostatnich N minut (lub godzin) dla Data0\n"
- 
- #: ../src/inet.c:1787
- msgid "\t$l    label for Data0\n"
-@@ -1383,9 +1383,8 @@
- msgstr "\t$A    aktywne w tej chwili po³±czenia dla Data1\n"
- 
- #: ../src/inet.c:1789
--#, fuzzy
- msgid "\t$CN   total connections in last N minutes (or hours) for Data1\n"
--msgstr "\t$CN   razem po³±czenia w ci±gu ostatnich N minut dla Data1\n"
-+msgstr "\t$CN   razem po³±czenia w ci±gu ostatnich N minut (lub godzin) dla Data1\n"
- 
- #: ../src/inet.c:1790
- msgid "\t$L    label for Data1\n"
-@@ -1473,15 +1472,15 @@
- 
- #: ../src/mail.c:729
- msgid "Cannot initialize SSL method."
--msgstr ""
-+msgstr "Nie mo¿na zainicjowaæ metody SSL."
- 
- #: ../src/mail.c:733
- msgid "Cannot initialize SSL server certificate handler."
--msgstr ""
-+msgstr "Nie mo¿na zainicjowaæ procedury obs³ugi certyfikatu serwera SSL."
- 
- #: ../src/mail.c:739
- msgid "Cannot initialize SSL handler."
--msgstr ""
-+msgstr "Nie mo¿na zainicjowaæ procedury obs³ugi SSL."
- 
- #: ../src/mail.c:866 ../src/mail.c:939
- msgid "could not decode BASE64 challenge\n"
 @@ -1514,9 +1513,10 @@
  msgid "mute"
  msgstr "wycisz"
  
 +# XXX: problematic (fetchmail uses ngettext: widziany/widziane/widzianych)
- #: ../src/mail.c:1964
+ #: ../src/mail.c:1965
  msgid "seen"
 -msgstr ""
 +msgstr "widziane"
  
- #: ../src/mail.c:3407
+ #: ../src/mail.c:3408
  msgid "GKrellM Config Error"
 @@ -1687,7 +1687,7 @@
  
@@ -102,96 +55,20 @@
  
  #: ../src/mail.c:3818
  msgid "Check local mailboxes every"
-@@ -1735,7 +1735,7 @@
+@@ -1949,11 +1949,11 @@
  
- #: ../src/mail.c:3914
- msgid "Use SSL"
--msgstr ""
-+msgstr "U¿yj SSL"
- 
- #: ../src/mail.c:3922
- msgid "No"
-@@ -1949,19 +1949,19 @@
- 
- #: ../src/main.c:1997
+ #: ../src/main.c:1998
  msgid "segmentation fault"
 -msgstr ""
 +msgstr "naruszenie ochrony pamiêci"
  
- #: ../src/main.c:1999
+ #: ../src/main.c:2000
  msgid "floating point exception"
 -msgstr ""
 +msgstr "b³±d w obliczeniach zmiennoprzecinkowych"
  
- #: ../src/main.c:2001
+ #: ../src/main.c:2002
  msgid "aborted"
--msgstr ""
-+msgstr "przerwano"
- 
- #: ../src/main.c:2004
- msgid "initializing"
--msgstr ""
-+msgstr "inicjalizacja"
- 
- #: ../src/main.c:2164
- #, c-format
-@@ -2101,11 +2101,11 @@
- 
- #: ../src/net.c:668
- msgid "Received"
--msgstr ""
-+msgstr "Odebrano"
- 
- #: ../src/net.c:672
- msgid "Transmitted"
--msgstr ""
-+msgstr "Wys³ano"
- 
- #: ../src/net.c:676
- msgid "Total"
-@@ -2118,27 +2118,27 @@
- #: ../src/net.c:701
- #, c-format
- msgid "%s Statistics"
--msgstr ""
-+msgstr "Statystyki %s"
- 
- #: ../src/net.c:721
- msgid "Daily"
--msgstr ""
-+msgstr "Dzienne"
- 
- #: ../src/net.c:722
- msgid "Date"
--msgstr ""
-+msgstr "Data"
- 
- #: ../src/net.c:724
- msgid "Weekly"
--msgstr ""
-+msgstr "Tygodniowe"
- 
- #: ../src/net.c:726
- msgid "Week Ending"
--msgstr ""
-+msgstr "Koniec tygodnia"
- 
- #: ../src/net.c:728
- msgid "Monthly"
--msgstr ""
-+msgstr "Miesiêczne"
- 
- #: ../src/net.c:730
- msgid "Month"
-@@ -2516,7 +2516,7 @@
- #: ../src/sensors.c:702
- #, c-format
- msgid "Can't find a %s panel to relocate sensor to."
--msgstr ""
-+msgstr "Nie mo¿na odnale¼æ panelu %s do przeniesienia czujnika."
- 
- #: ../src/sensors.c:1586 ../src/sensors.c:2795
- msgid "Sensors"
 @@ -2552,6 +2552,9 @@
  "Check mbmon port number and '-r' option.\n"
  "Run gkrellm -d 0x80 for debug output.\n"
@@ -202,173 +79,3 @@
  
  #: ../src/sensors.c:2564
  msgid "<b>No sensors detected.\n"
-@@ -2621,13 +2624,15 @@
- 
- #: ../src/sensors.c:2844
- msgid "MBmon Daemon Port"
--msgstr ""
-+msgstr "Port demona MBmon"
- 
- #: ../src/sensors.c:2849
- msgid ""
- "<small>Daemon command must be: <b>mbmon -r -P port</b>\n"
- "where 'port' must match the port number entered here:</small>"
- msgstr ""
-+"<small>Polecenie demona musi byæ w postaci: <b>mbmon -r -P port</b>\n"
-+"gdzie 'port' musi siê zgadzaæ z numerem portu wpisanym tutaj:</small>"
- 
- #: ../src/uptime.c:269
- msgid "Enable Uptime"
-@@ -2712,152 +2712,3 @@
- #: ../src/sysdeps/linux.c:3222
- msgid "Use nvclock for NVIDIA GPU temperatures"
- msgstr ""
--
--#~ msgid ""
--#~ "usage: gkrellm [options]\n"
--#~ "options:\n"
--#~ "   -t, --theme theme_dir    Select a theme directory.\n"
--#~ "   -g, --geometry +x+y      Position the window on the screen.\n"
--#~ "       --wm                 Allow window manager decorations.\n"
--#~ "       --m2                 Left button side frame shading (for 2 btn "
--#~ "mice).\n"
--#~ "       --nt                 No transparency.\n"
--#~ "   -w, --withdrawn          Draw GKrellM in withdrawn mode.\n"
--#~ "   -c, --config suffix      Use alternate config files generated by\n"
--#~ "                            appending \"suffix\" to config file names.\n"
--#~ "   -f, --force-host-config  Creates config files generated by appending "
--#~ "the\n"
--#~ "                            hostname to config file names.  Subsequent "
--#~ "runs\n"
--#~ "                            automatically will use these configs unless "
--#~ "a\n"
--#~ "                            specific config is specified with --config.\n"
--#~ "                            This is a convenience for allowing remote "
--#~ "runs\n"
--#~ "                            with independent configs in a shared home "
--#~ "dir\n"
--#~ "                            and for the hostname to be in the window "
--#~ "title.\n"
--#~ "                            This option has no effect in client mode.\n"
--#~ "   -s, --server hostname    Run in client mode: connect to \"hostname\" "
--#~ "and\n"
--#~ "                            read monitor data from a gkrellmd server.\n"
--#~ "   -P, --port server_port   Use \"server_port\" for the server "
--#~ "connection.\n"
--#~ "       --nc                 No config mode prevents configuration "
--#~ "changes.\n"
--#~ "   -p, --plugin plugin.so   While developing, load your plugin under "
--#~ "test.\n"
--#~ "       --demo               Force enabling of many monitors so themers "
--#~ "can\n"
--#~ "                            see everything. All config saving is "
--#~ "inhibited.\n"
--#~ "   -v, --version            Print GKrellM version number and exit.\n"
--#~ "   -d, --debug-level n      Turn debugging on for selective code "
--#~ "sections.\n"
--#~ "\n"
--#~ "debug-level numbers are (bitwise OR to debug multiple sections):\n"
--#~ "     0x10  mail\n"
--#~ "     0x20  net\n"
--#~ "     0x40  timer button\n"
--#~ "     0x80  sensors\n"
--#~ "\n"
--#~ msgstr ""
--#~ "u¿ycie: gkrellm [opcje]\n"
--#~ "opcje:\n"
--#~ "   -t, --theme theme_dir    Wybiera katalog wystroju.\n"
--#~ "   -g, --geometry +x+y      Pozycja okna na ekranie.\n"
--#~ "       --wm                 Dopuszcza dekoracje menad¿era okien.\n"
--#~ "       --m2                 Left button side frame shading (for 2 btn "
--#~ "mice).\n"
--#~ "       --nt                 Nieprzezroczyste.\n"
--#~ "   -w, --withdrawn          Draw GKrellM in withdrawn mode.\n"
--#~ "   -c, --config suffix      Use alternate config files generated by\n"
--#~ "                            appending \"suffix\" to config file names.\n"
--#~ "   -f, --force-host-config  Creates config files generated by appending "
--#~ "the\n"
--#~ "                            hostname to config file names.  Subsequent "
--#~ "runs\n"
--#~ "                            automatically will use these configs unless "
--#~ "a\n"
--#~ "                            specific config is specified with --config.\n"
--#~ "                            This is a convenience for allowing remote "
--#~ "runs\n"
--#~ "                            with independent configs in a shared home "
--#~ "dir\n"
--#~ "                            and for the hostname to appear in the X "
--#~ "title. \n"
--#~ "                            Opcja ta nie ma znaczenia w trybie klienta.\n"
--#~ "   -s, --server hostname   Uruchom w trybie klienta: po³±cz z \"hostname"
--#~ "\" i\n"
--#~ "                            czytaj dane monitorów z serwera gkrellmd.\n"
--#~ "   -P, --port server_port   U¿yj \"server_port\" do po³±czenia z "
--#~ "serwerem.\n"
--#~ "       --nc                 No config mode prevents configuration "
--#~ "changes.\n"
--#~ "   -p, --plugin plugin.so   While developing, load your plugin under "
--#~ "test.\n"
--#~ "       --demo               Force enabling of many monitors so themers "
--#~ "can\n"
--#~ "                            see everything. All config saving is "
--#~ "inhibited.\n"
--#~ "   -v, --version            Wypisuje numer wersji GKrellM i koñczy "
--#~ "pracê.\n"
--#~ "   -d, --debug-level n      W³±cza odpluskwianie wybranych sekcji kodu.\n"
--#~ "\n"
--#~ "numery poziomów odpluskwiania to: (u¿yj bitowego OR by ¶ledziæ wiele "
--#~ "sekcji):\n"
--#~ "     0x10  poczta\n"
--#~ "     0x20  sieæ\n"
--#~ "     0x40  przycisk zegara\n"
--#~ "     0x80  czujniki\n"
--#~ "\n"
--
--#~ msgid ""
--#~ "Windows system dependent code was contributed by:\n"
--#~ "Bill Nalen <bill@nalens.com>"
--#~ msgstr ""
--#~ "Kod Windows zale¿ny od systemu przy wspó³pracy:\n"
--#~ "Bill Nalen <bill@nalens.com>"
--
--#~ msgid "Receive"
--#~ msgstr "Odebrane"
--
--#~ msgid "Transmit"
--#~ msgstr "Wys³ane"
--
--#~ msgid "Today"
--#~ msgstr "Dzisiaj"
--
--#~ msgid "Week"
--#~ msgstr "Tydzieñ"
--
--#~ msgid "Use above alternate fonts instead of theme specified fonts"
--#~ msgstr "U¿ywaj powy¿szych zastêpczych czcionek zamiast czcionek wystroju"
--
--#~ msgid "mdir %s total=%d old=%d new=%d\n"
--#~ msgstr "mdir %s razem=%d stare=%d nowe=%d\n"
--
--#~ msgid "Draw mail: new=%d count=%d "
--#~ msgstr "Rysuj pocztê: nowe=%d zlicz=%d "
--
--#~ msgid "string=<%s>\n"
--#~ msgstr "³añcuch=<%s>\n"
--
--#~ msgid "mail pipe_command: old command <%s> still running.\n"
--#~ msgstr "mail pipe_command: stare polecenie <%s> wci±¿ pracuje.\n"
--
--#~ msgid "mail launching pipe_command <%s>\n"
--#~ msgstr "pipe_command uruchomienie poczty <%s>\n"
--
--#~ msgid "Mail user agent is already running.\n"
--#~ msgstr "Jest ju¿ uruchomiony agent poczty u¿ytkownika.\n"
--
--#~ msgid "Ay8"
--#~ msgstr "Ay8"
--
--#~ msgid "Load fonts as fontsets"
--#~ msgstr "Wczytaj czcionki jako zestawy czcionek"
--
--#~ msgid "mail could not run pipe_command <%s>\n"
--#~ msgstr "mail nie mog³a uruchomiæ pipe_command <%s>\n"
