@@ -1,5 +1,8 @@
-%bcond_without	gnutls	# gnutls support for mail check (instead of OpenSSL)
+#
+# Conditional build:
+%bcond_without	gnutls		# replace gnutls with OpenSSL (for mail check support)
 %bcond_without	lm_sensors	# don't include sensors support by libsensors
+#
 Summary:	Multiple stacked system monitors: 1 process
 Summary(pl.UTF-8):	Zestaw wielu monitorów systemu(ów) w jednym procesie
 Summary(pt_BR.UTF-8):	Monitoração de atividades do sistema
