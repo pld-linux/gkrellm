@@ -36,11 +36,11 @@ diff -u -r gkrellm-2.3.0.orig/src/Makefile gkrellm-2.3.0/src/Makefile
 @@ -111,7 +112,7 @@
  all:	gkrellm
  
- gkrellm: $(OBJS) $(UNIXOBJS) $(EXTRAOBJS)
+ gkrellm: check_env $(OBJS) $(UNIXOBJS) $(EXTRAOBJS)
 -	$(CC) $(OBJS) $(UNIXOBJS) $(EXTRAOBJS) -o gkrellm $(LIBS) $(LINK_FLAGS)
 +	$(CC) $(LINK_FLAGS) $(OBJS) $(UNIXOBJS) $(EXTRAOBJS) -o gkrellm $(LIBS) 
  
- static: $(OBJS) $(UNIXOBJS) $(EXTRAOBJS)
+ static: check_env $(OBJS) $(UNIXOBJS) $(EXTRAOBJS)
  	$(CC) $(OBJS) $(UNIXOBJS) $(EXTRAOBJS) -o gkrellm.static -static \
 Only in gkrellm-2.3.0/src: Makefile.orig
 Only in gkrellm-2.3.0/src: .Makefile.swp
