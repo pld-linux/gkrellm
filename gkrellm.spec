@@ -29,6 +29,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gtk+2-devel >= 2:2.2.0
+BuildRequires:	libntlm-devel
 %{?with_lm_sensors:BuildRequires:	lm_sensors-devel}
 %{!?with_gnutls:BuildRequires:	openssl-devel}
 BuildRequires:	pkgconfig
