@@ -1,5 +1,5 @@
---- gkrellm-2.3.2/po/pl.po.orig	2008-10-04 00:27:05.000000000 +0100
-+++ gkrellm-2.3.2/po/pl.po	2009-01-19 18:17:29.000000000 +0000
+--- gkrellm-2.3.2/po/pl.po.orig	2009-12-21 01:56:48.000000000 +0000
++++ gkrellm-2.3.2/po/pl.po	2010-02-14 00:28:39.233137768 +0000
 @@ -1,11 +1,11 @@
  # translation of pl.po to Polish
 -# Polish Translation of GKrellM. Copyright Przemys³aw Su³ek
@@ -8,22 +8,22 @@
 +# Polish Translation of GKrellM. Released under the GPL.
 +# Copyright Przemys³aw Su³ek <pbs@linux.net.pl>, 2001-2003.
 +# Jakub Bogusz <qboosh@pld-linux.org>, 2006
- # Micha³ Smoczyk <msmoczyk@wp.pl>, 2007, 2008.
+ # Micha³ Smoczyk <msmoczyk@wp.pl>, 2009, 2008.
  msgid ""
  msgstr ""
 -"Project-Id-Version: pl\n"
 +"Project-Id-Version: GKrellM 2.2.10\n"
  "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2008-10-03 18:27-0500\n"
+ "POT-Creation-Date: 2009-12-20 19:56-0600\n"
  "PO-Revision-Date: 2008-01-26 16:27+0100\n"
 @@ -2065,7 +2065,7 @@
  
- #: ../src/main.c:1984
+ #: ../src/main.c:1999
  msgid "segmentation fault"
 -msgstr ""
 +msgstr "naruszenie ochrony pamiêci"
  
- #: ../src/main.c:1986
+ #: ../src/main.c:2001
  msgid "floating point exception"
 @@ -2193,6 +2193,9 @@
  "The free and used variables may have a 'r' qualifier for printing\n"
@@ -33,5 +33,5 @@
 +"Proszê sprawdziæ numer portu mbmon i opcjê '-r'.\n"
 +"Aby uzyskaæ wyj¶cie diagnostyczne, mo¿na uruchomiæ gkrellmd -d 0x80.\n"
  
- #: ../src/mem.c:1274
+ #: ../src/mem.c:1286
  msgid ""
