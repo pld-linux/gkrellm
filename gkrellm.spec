@@ -34,6 +34,7 @@ BuildRequires:	libntlm-devel
 %{!?with_gnutls:BuildRequires:	openssl-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.268
+BuildRequires:	xorg-lib-libSM-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
