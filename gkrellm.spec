@@ -9,12 +9,12 @@ Summary(pt_BR.UTF-8):	Monitoração de atividades do sistema
 Summary(ru.UTF-8):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk.UTF-8):	GKrellM - це стек системних моніторів у рамках одного процесу
 Name:		gkrellm
-Version:	2.3.4
+Version:	2.3.5
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications
 Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
-# Source0-md5:	600f4daa395112ed19a3633deb0829ff
+# Source0-md5:	05d00fa8d6376038b0c7e967583c0b8d
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	%{name}d.init
@@ -24,6 +24,7 @@ Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-lm_sensors.patch
 Patch4:		%{name}-ldflags.patch
+Patch5:		myflags.patch
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
@@ -130,17 +131,18 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
 %setup -q
-%patch0 -p1
+# %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
+# %patch4 -p1
+%patch5 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	OPTFLAGS="%{rpmcflags}" \
-	LINK_FLAGS="%{rpmldflags}" \
+	MYFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}" \
 	PKGCONFIGDIR=%{_pkgconfigdir} \
 	INSTALLROOT=%{_prefix} \
 	%{?with_gnutls:without-ssl=yes} \
