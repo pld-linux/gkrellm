@@ -25,6 +25,7 @@ Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-lm_sensors.patch
 Patch4:		%{name}-ldflags.patch
 Patch5:		myflags.patch
+Patch6:		%{name}-plugins_dir_lib64.patch
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
@@ -137,6 +138,9 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %patch3 -p1
 # %patch4 -p1
 %patch5 -p1
+%ifarch %{x8664} ia64 ppc64 sparc64
+%patch6 -p1
+%endif
 
 %build
 %{__make} \

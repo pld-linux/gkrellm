@@ -1,0 +1,39 @@
+--- gkrellm-2.2.9/README	2006-03-29 22:18:36.000000000 +0000
++++ gkrellm-2.2.9-lib64/README	2006-09-29 13:44:06.000000000 +0000
+@@ -759,7 +759,7 @@
+ 
+ GKrellM tries to load all plugins (shared object files ending in .so)
+ it finds in your plugin directory ~/.gkrellm2/plugins.  The directories
+-/usr/local/lib/gkrellm2/plugins and /usr/lib/gkrellm2/plugins are
++/usr/local/lib64/gkrellm2/plugins and /usr/lib64/gkrellm2/plugins are
+ also searched for plugins to install.
+ 
+ Some plugins may be available only as source files and they will
+--- gkrellm-2.3.4/src/gkrellm.h.orig	2010-07-19 14:18:56.000000000 +0200
++++ gkrellm-2.3.4/src/gkrellm.h	2010-07-19 14:20:53.000000000 +0200
+@@ -136,9 +136,9 @@
+ #if !defined(SYSTEM_THEMES_DIR)
+ #define	SYSTEM_THEMES_DIR		"/usr/share/gkrellm2/themes"
+ #endif
+-#define	LOCAL_PLUGINS_DIR		"/usr/local/lib/gkrellm2/plugins"
++#define	LOCAL_PLUGINS_DIR		"/usr/local/lib64/gkrellm2/plugins"
+ #if !defined(SYSTEM_PLUGINS_DIR)
+-#define	SYSTEM_PLUGINS_DIR		"/usr/lib/gkrellm2/plugins"
++#define	SYSTEM_PLUGINS_DIR		"/usr/lib64/gkrellm2/plugins"
+ #endif
+ 
+ #else
+--- gkrellm-2.3.4/server/gkrellmd.h.orig	2010-07-19 14:28:21.000000000 +0200
++++ gkrellm-2.3.4/server/gkrellmd.h	2010-07-19 14:28:43.000000000 +0200
+@@ -126,9 +126,9 @@
+ 
+ #define GKRELLMD_PLUGINS_DIR		".gkrellm2/plugins-gkrellmd"
+ #if !defined(WIN32)
+-	#define GKRELLMD_LOCAL_PLUGINS_DIR	"/usr/local/lib/gkrellm2/plugins-gkrellmd"
++	#define GKRELLMD_LOCAL_PLUGINS_DIR	"/usr/local/lib64/gkrellm2/plugins-gkrellmd"
+ 	#if !defined(GKRELLMD_SYSTEM_PLUGINS_DIR)
+-		#define GKRELLMD_SYSTEM_PLUGINS_DIR	"/usr/lib/gkrellm2/plugins-gkrellmd"
++		#define GKRELLMD_SYSTEM_PLUGINS_DIR	"/usr/lib64/gkrellm2/plugins-gkrellmd"
+ 	#endif
+ 	#define GKRELLMD_SYS_ETC	"/etc"
+ 	#define GKRELLMD_LOCAL_ETC	"/usr/local/etc"
