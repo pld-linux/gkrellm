@@ -10,7 +10,7 @@ Summary(ru.UTF-8):	GKrellM - это стек системных мониторо
 Summary(uk.UTF-8):	GKrellM - це стек системних моніторів у рамках одного процесу
 Name:		gkrellm
 Version:	2.3.5
-Release:	4
+Release:	5
 License:	GPL v3+
 Group:		X11/Applications
 Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
@@ -26,6 +26,8 @@ Patch3:		%{name}-lm_sensors.patch
 Patch4:		%{name}-ldflags.patch
 Patch5:		myflags.patch
 Patch6:		%{name}-plugins_dir_lib64.patch
+Patch7:		glib2-link.patch
+Patch8:		format-security.patch
 URL:		http://www.gkrellm.net/
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.2.0
@@ -142,6 +144,8 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %ifarch %{x8664} ia64 ppc64 sparc64
 %patch6 -p1
 %endif
+%patch7 -p1
+%patch8 -p1
 
 %build
 %{__make} \

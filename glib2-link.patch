@@ -1,0 +1,26 @@
+--- gkrellm-2.3.5/server/Makefile~	2014-01-02 13:47:46.000000000 +0100
++++ gkrellm-2.3.5/server/Makefile	2014-01-02 13:51:41.626148979 +0100
+@@ -54,8 +54,8 @@
+ 
+ GKRELLMD_INCLUDES = gkrellmd.h $(SHARED_PATH)/log.h
+ 
+-PKG_INCLUDE = `$(PKG_CONFIG) --cflags glib-2.0 gthread-2.0`
+-PKG_LIB = `$(PKG_CONFIG) --libs glib-2.0 gmodule-2.0 gthread-2.0`
++PKG_INCLUDE = `$(PKG_CONFIG) --cflags glib-2.0 gthread-2.0 gmodule-2.0`
++PKG_LIB = `$(PKG_CONFIG) --libs glib-2.0 gmodule-2.0 gthread-2.0 gmodule-2.0`
+ 
+ GLIB12_INCLUDE = `glib-config --cflags`
+ GLIB12_LIB = `glib-config --libs glib gmodule`
+--- gkrellm-2.3.5/src/Makefile~	2014-01-02 13:47:46.000000000 +0100
++++ gkrellm-2.3.5/src/Makefile	2014-01-02 13:52:53.649481792 +0100
+@@ -68,8 +68,8 @@
+ 
+ GKRELLM_INCLUDES = gkrellm.h gkrellm-public-proto.h $(SHARED_PATH)/log.h
+ 
+-PKG_INCLUDE = `$(PKG_CONFIG) --cflags gtk+-2.0 gthread-2.0`
+-PKG_LIB = `$(PKG_CONFIG) --libs gtk+-2.0 gthread-2.0`
++PKG_INCLUDE = `$(PKG_CONFIG) --cflags gtk+-2.0 gthread-2.0 gmodule-2.0`
++PKG_LIB = `$(PKG_CONFIG) --libs gtk+-2.0 gthread-2.0 gmodule-2.0`
+ 
+ FLAGS = -O2 -I.. -I$(SHARED_PATH) $(PKG_INCLUDE) $(GTOP_INCLUDE) $(PTHREAD_INC)\
+  ${SSL_INCLUDE} ${NTLM_INCLUDE} -DGKRELLM_CLIENT ${MYFLAGS}
