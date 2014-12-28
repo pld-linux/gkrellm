@@ -29,7 +29,7 @@ Patch6:		%{name}-plugins_dir_lib64.patch
 Patch7:		glib2-link.patch
 Patch8:		format-security.patch
 URL:		http://www.gkrellm.net/
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 2.2.0
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
 BuildRequires:	gtk+2-devel >= 2:2.2.0
