@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_without	gnutls		# replace gnutls with OpenSSL (for mail check support)
-%bcond_without	lm_sensors	# don't include sensors support by libsensors
+%bcond_without	gnutls		# gnutls instead of OpenSSL (for mail check support)
+%bcond_without	lm_sensors	# sensors support by libsensors
 #
 Summary:	Multiple stacked system monitors: 1 process
 Summary(pl.UTF-8):	Zestaw wielu monitorów systemu(ów) w jednym procesie
@@ -9,12 +9,12 @@ Summary(pt_BR.UTF-8):	Monitoração de atividades do sistema
 Summary(ru.UTF-8):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk.UTF-8):	GKrellM - це стек системних моніторів у рамках одного процесу
 Name:		gkrellm
-Version:	2.3.5
-Release:	7
+Version:	2.3.11
+Release:	1
 License:	GPL v3+
 Group:		X11/Applications
-Source0:	http://members.dslextreme.com/users/billw/gkrellm/%{name}-%{version}.tar.gz
-# Source0-md5:	05d00fa8d6376038b0c7e967583c0b8d
+Source0:	http://gkrellm.srcbox.net/releases/%{name}-%{version}.tar.bz2
+# Source0-md5:	de25d51653567a896979bcce8c91a019
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Source3:	%{name}d.init
@@ -23,12 +23,7 @@ Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-lm_sensors.patch
-Patch4:		%{name}-ldflags.patch
-Patch5:		myflags.patch
-Patch6:		%{name}-plugins_dir_lib64.patch
-Patch7:		glib2-link.patch
-Patch8:		format-security.patch
-URL:		http://www.gkrellm.net/
+URL:		http://gkrellm.srcbox.net/
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 2.2.0
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
@@ -39,7 +34,9 @@ BuildRequires:	libntlm-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	which
+BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
+BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -135,22 +132,17 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %prep
 %setup -q
-# %patch0 -p1
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-# %patch4 -p1
-%patch5 -p1
-%ifarch %{x8664} ia64 ppc64 sparc64
-%patch6 -p1
-%endif
-%patch7 -p1
-%patch8 -p1
+
+%{__sed} -i -e 's,/lib/,/%{_lib}/,g' README server/gkrellmd.h src/gkrellm.h
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	MYFLAGS="%{rpmcflags}" \
+	OPTFLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}" \
 	PKGCONFIGDIR=%{_pkgconfigdir} \
 	INSTALLROOT=%{_prefix} \
@@ -200,8 +192,8 @@ fi
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
 %dir %{_datadir}/gkrellm2/themes
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_desktopdir}/gkrellm.desktop
+%{_pixmapsdir}/gkrellm.png
 
 %files gkrellmd
 %defattr(644,root,root,755)

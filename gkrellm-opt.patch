@@ -1,12 +1,24 @@
---- gkrelkm-2.3.2/src/Makefile.orig	2009-01-19 17:59:24.000000000 +0000
-+++ gkrellm-2.3.2/src/Makefile	2009-01-19 17:59:40.000000000 +0000
-@@ -87,7 +87,8 @@
- PKG_INCLUDE = `$(PKG_CONFIG) --cflags gtk+-2.0 gthread-2.0`
- PKG_LIB = `$(PKG_CONFIG) --libs gtk+-2.0 gthread-2.0`
+--- gkrellm-2.3.11/src/Makefile.orig	2019-07-23 17:19:04.000000000 +0200
++++ gkrellm-2.3.11/src/Makefile	2024-03-29 05:42:20.750146764 +0100
+@@ -47,7 +47,8 @@ GKRELLM_INCLUDES = gkrellm.h gkrellm-pub
+ PKG_INCLUDE := $(shell $(PKG_CONFIG) --cflags gtk+-2.0 gmodule-2.0 gthread-2.0)
+ PKG_LIB := $(shell $(PKG_CONFIG) --libs gtk+-2.0 gmodule-2.0 gthread-2.0)
  
--FLAGS = -O2 -I.. -I$(SHARED_PATH) $(PKG_INCLUDE) $(GTOP_INCLUDE) $(PTHREAD_INC) \
+-FLAGS = -O2 -I.. -I$(SHARED_PATH) $(PKG_INCLUDE) $(GTOP_INCLUDE) $(PTHREAD_INC)\
 +OPTFLAGS = -O2
-+FLAGS = $(OPTFLAGS) -I.. -I$(SHARED_PATH) $(PKG_INCLUDE) $(GTOP_INCLUDE) $(PTHREAD_INC) \
-  ${NTLM_INCLUDES} -DGKRELLM_CLIENT
++FLAGS = $(OPTFLAGS) -I.. -I$(SHARED_PATH) $(PKG_INCLUDE) $(GTOP_INCLUDE) $(PTHREAD_INC)\
+  ${SSL_INCLUDE} ${NTLM_INCLUDE} -DGKRELLM_CLIENT
  
- LIBS = $(PKG_LIB) $(GTOP_LIBS) $(SMC_LIBS) $(SYS_LIBS) $(SSL_LIBS) $(SENSORS_LIBS) \
+ LIBS = $(PKG_LIB) $(GTOP_LIBS) $(X11_LIBS) $(SYS_LIBS) $(SSL_LIBS) $(SENSORS_LIBS)\
+--- gkrellm-2.3.11/server/Makefile.orig	2019-07-23 17:19:04.000000000 +0200
++++ gkrellm-2.3.11/server/Makefile	2024-03-29 05:42:46.263341880 +0100
+@@ -31,7 +31,8 @@ GKRELLMD_INCLUDES = gkrellmd.h $(SHARED_
+ PKG_INCLUDE := $(shell $(PKG_CONFIG) --cflags glib-2.0 gmodule-2.0 gthread-2.0)
+ PKG_LIB := $(shell $(PKG_CONFIG) --libs glib-2.0 gmodule-2.0 gthread-2.0)
+ 
+-FLAGS = -O2 $(PKG_INCLUDE)
++OPTFLAGS = -O2
++FLAGS = $(OPTFLAGS) $(PKG_INCLUDE)
+ 
+ FLAGS += $(GTOP_INCLUDE) $(PTHREAD_INC) -I.. -I$(SHARED_PATH) -DGKRELLM_SERVER
+ 
