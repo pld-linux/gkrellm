@@ -25,9 +25,9 @@ Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-lm_sensors.patch
 URL:		http://gkrellm.srcbox.net/
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 2.2.0
+BuildRequires:	glib2-devel >= 1:2.32
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
-BuildRequires:	gtk+2-devel >= 2:2.2.0
+BuildRequires:	gtk+2-devel >= 2:2.4
 BuildRequires:	libntlm-devel
 %{?with_lm_sensors:BuildRequires:	lm_sensors-devel}
 %{!?with_gnutls:BuildRequires:	openssl-devel}
@@ -37,6 +37,8 @@ BuildRequires:	which
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
+Requires:	glib2 >= 1:2.32
+Requires:	gtk+2 >= 2:2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -94,6 +96,7 @@ Summary:	gkrellmd - The GNU Krell Monitors Server
 Summary(pl.UTF-8):	gkrellmd - Serwer monitorów GKrellM
 Group:		Daemons
 Requires(post,preun):	/sbin/chkconfig
+Requires:	glib2 >= 1:2.32
 Requires:	rc-scripts
 
 %description gkrellmd
@@ -113,7 +116,8 @@ Summary(pt_BR.UTF-8):	Componentes para desenvolvimento com o gkrellm
 Summary(ru.UTF-8):	Файлы C хедеров для GKrellM
 Summary(uk.UTF-8):	Файли C хедерів для GKrellM
 Group:		X11/Development/Libraries
-Requires:	gtk+2-devel >= 2:2.2.0
+Requires:	glib2-devel >= 1:2.32
+Requires:	gtk+2-devel >= 2:2.4
 
 %description devel
 gkrellm header files for gkrellm development and plugin support.
