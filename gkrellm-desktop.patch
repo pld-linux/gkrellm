@@ -1,0 +1,17 @@
+--- gkrellm-2.4.0/data/gkrellm.desktop.orig	2025-01-19 17:02:37.000000000 +0100
++++ gkrellm-2.4.0/data/gkrellm.desktop	2025-04-18 20:05:41.987705353 +0200
+@@ -1,9 +1,12 @@
+ [Desktop Entry]
+ Name=GKrellM System Monitor
++Name[pl]=Monitor systemu GKrellM
+ GenericName=System Monitor
++GenericName[pl]=Monitor systemu
+ Comment=Monitor for CPU, memory, disks, network, mail and more
++Comment[pl]=Monitor CPU, pamięci, dysków, sici, poczty itp.
+ Exec=gkrellm
+ Icon=gkrellm
+ Terminal=false
+ Type=Application
+-Categories=System;
+\ No newline at end of file
++Categories=GTK;System;Monitor;

@@ -9,21 +9,20 @@ Summary(pt_BR.UTF-8):	Monitoração de atividades do sistema
 Summary(ru.UTF-8):	GKrellM - это стек системных мониторов в рамках одного процесса
 Summary(uk.UTF-8):	GKrellM - це стек системних моніторів у рамках одного процесу
 Name:		gkrellm
-Version:	2.3.11
+Version:	2.4.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications
-Source0:	http://gkrellm.srcbox.net/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	de25d51653567a896979bcce8c91a019
-Source1:	%{name}.desktop
-Source2:	%{name}.png
+Source0:	https://gkrellm.srcbox.net/releases/%{name}-%{version}.tar.bz2
+# Source0-md5:	752a8591bb09cca793dfbe85e6ad2fd1
 Source3:	%{name}d.init
 Source4:	%{name}d.sysconf
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-lm_sensors.patch
-URL:		http://gkrellm.srcbox.net/
+Patch4:		%{name}-desktop.patch
+URL:		https://gkrellm.srcbox.net/
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.32
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.2.5}
@@ -140,6 +139,7 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 %patch -P1 -p1
 %patch -P2 -p1
 %patch -P3 -p1
+%patch -P4 -p1
 
 %{__sed} -i -e 's,/lib/,/%{_lib}/,g' README server/gkrellmd.h src/gkrellm.h
 
@@ -155,22 +155,18 @@ Componentes para desenvolvimento de plugins para o gkrellm.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir}/gkrellm2} \
-	$RPM_BUILD_ROOT%{_libdir}/gkrellm2/plugins \
-	$RPM_BUILD_ROOT%{_datadir}/gkrellm2/themes \
-	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
-	$RPM_BUILD_ROOT%{_datadir}/locale
+install -d $RPM_BUILD_ROOT%{_libdir}/gkrellm2/plugins \
+	$RPM_BUILD_ROOT%{_datadir}/gkrellm2/themes
 
 %{__make} install \
 	STRIP= \
+	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix} \
+	CFGDIR=$RPM_BUILD_ROOT%{_sysconfdir} \
 	PKGCONFIGDIR=$RPM_BUILD_ROOT%{_pkgconfigdir} \
-	INSTALLROOT=$RPM_BUILD_ROOT%{_prefix}
+	SERVICE_DIR=$RPM_BUILD_ROOT%{systemdunitdir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-install -D %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/gkrellmd
-install -D %{SOURCE4} $RPM_BUILD_ROOT/etc/sysconfig/gkrellmd
-install -D server/gkrellmd.conf $RPM_BUILD_ROOT%{_sysconfdir}/gkrellmd.conf
+install -Dp %{SOURCE3} $RPM_BUILD_ROOT/etc/rc.d/init.d/gkrellmd
+install -Dp %{SOURCE4} $RPM_BUILD_ROOT/etc/sysconfig/gkrellmd
 
 %find_lang %{name}
 
@@ -196,16 +192,18 @@ fi
 %dir %{_libdir}/gkrellm2/plugins
 %dir %{_datadir}/gkrellm2
 %dir %{_datadir}/gkrellm2/themes
+%{_datadir}/metainfo/net.srcbox.gkrellm.GKrellM.metainfo.xml
 %{_desktopdir}/gkrellm.desktop
-%{_pixmapsdir}/gkrellm.png
+%{_iconsdir}/hicolor/*x*/apps/gkrellm.png
 
 %files gkrellmd
 %defattr(644,root,root,755)
-%{_mandir}/man1/gkrellmd.1*
 %attr(755,root,root) %{_bindir}/gkrellmd
+%{_mandir}/man1/gkrellmd.1*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gkrellmd.conf
 %attr(754,root,root) /etc/rc.d/init.d/gkrellmd
 %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/gkrellmd
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gkrellmd.conf
+%{systemdunitdir}/gkrellmd.service
 
 %files devel
 %defattr(644,root,root,755)

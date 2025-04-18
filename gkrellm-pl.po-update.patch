@@ -1,137 +1,308 @@
---- gkrellm-2.3.11/po/pl.po.orig	2019-07-25 15:45:58.000000000 +0200
-+++ gkrellm-2.3.11/po/pl.po	2024-03-29 05:37:42.198322475 +0100
-@@ -277,9 +277,8 @@ msgid "Ag8"
+--- gkrellm-2.4.0/po/pl.po.orig	2025-01-19 17:02:37.000000000 +0100
++++ gkrellm-2.4.0/po/pl.po	2025-04-18 19:51:48.928885087 +0200
+@@ -277,33 +277,28 @@ msgid "Ag8"
  msgstr "Ag8"
  
- #: ../src/chart.c:2310 ../src/chart.c:2467
+ #: ../src/chart.c:2471
 -#, fuzzy
- msgid "/Control/Auto mode sticks at peak value"
--msgstr "/Kontrola/Tryb auto-pa�ki przy warto�ci szczytowej"
-+msgstr "/Kontrola/Tryb auto pozostaje przy warto�ci szczytowej"
+-#| msgid "/Control"
+ msgid "Control"
+-msgstr "/Kontrola"
++msgstr "Kontrola"
  
- #: ../src/chart.c:2314 ../src/chart.c:2465
- msgid "/Control/Auto mode recalibrate"
-@@ -343,11 +342,11 @@ msgstr "Wysoko�� wykresu"
- 
- #: ../src/clock.c:49
- msgid "%l:%M <span foreground=\"$A\"><small>%S</small></span>"
+ #: ../src/chart.c:2473
+ msgid "Sequence..."
 -msgstr ""
-+msgstr "%l:%M <span foreground=\"$A\"><small>%S</small></span>"
++msgstr "Sekwencja..."
  
- #: ../src/clock.c:54
- msgid "%a <span foreground=\"$A\"><big><big>%e</big></big></span> %b"
+ #: ../src/chart.c:2475
+-#, fuzzy
+-#| msgid "/Control/Auto mode recalibrate"
+ msgid "Auto mode recalibrate"
+-msgstr "/Kontrola/Ponowna kalibracja trybu automatycznego"
++msgstr "Ponowna kalibracja trybu automatycznego"
+ 
+ #: ../src/chart.c:2482
+-#, fuzzy
+ msgid "Auto mode sticks at peak value"
+-msgstr "/Kontrola/Tryb auto-pałki przy wartości szczytowej"
++msgstr "Tryb auto pozostaje przy wartości szczytowej"
+ 
+ #: ../src/chart.c:2489
+ msgid "1 2 5"
 -msgstr ""
-+msgstr "%a <span foreground=\"$A\"><big><big>%e</big></big></span> %b"
++msgstr "1 2 5"
  
- #: ../src/clock.c:688
- msgid "<h>Clock/Calendar Format Strings\n"
-@@ -373,13 +372,12 @@ msgstr ""
+ #: ../src/chart.c:2491
+ msgid "1 1.5 2 3 5 7"
+-msgstr ""
++msgstr "1 1.5 2 3 5 7"
+ 
+ #: ../src/chart.c:2560
+ msgid "GKrellM Chart Config"
+@@ -369,13 +364,12 @@ msgstr ""
  "lub czas 24-godzinny z sekundami.\n"
  
- #: ../src/clock.c:696
+ #: ../src/clock.c:709
 -#, fuzzy
  msgid ""
  "The special $A substitution variable expands to the current theme\n"
  "alternate color and is for use with the Pango \"foreground\" attribute.\n"
  msgstr ""
--"Zmienna specjalna $A uwypukla kolor alternatywny bie��cego\n"
--"wystroju - u�ywana jest ze znacznikiem \"t�a\" Pango.\n"
-+"Zmienna specjalna $A rozwija si� do koloru alternatywnego bie��cego\n"
-+"wystroju - u�ywana jest ze znacznikiem \"pierwszoplanowym\" Pango.\n"
+-"Zmienna specjalna $A uwypukla kolor alternatywny bieżącego\n"
+-"wystroju - używana jest ze znacznikiem \"tła\" Pango.\n"
++"Zmienna specjalna $A rozwija się do koloru alternatywnego bieżącego\n"
++"wystroju - używana jest ze znacznikiem \"pierwszoplanowym\" Pango.\n"
  
- #: ../src/clock.c:716 ../src/clock.c:787 ../src/clock.c:850
+ #: ../src/clock.c:729 ../src/clock.c:802 ../src/clock.c:865
  msgid "Calendar"
-@@ -991,6 +989,9 @@ msgid ""
- "Bill Nalen <bill@nalens.com>\n"
- "Stefan Gehn <stefan+gkrellm@srcbox.net>\n"
+@@ -478,10 +472,8 @@ msgid "\t$L    the CPU label\n"
+ msgstr "\t$L    etykieta CPU\n"
+ 
+ #: ../src/cpu.c:1346
+-#, fuzzy
+-#| msgid "\t$L    the CPU label\n"
+ msgid "\t$N    the CPU number\n"
+-msgstr "\t$L    etykieta CPU\n"
++msgstr "\t$N    numer CPU\n"
+ 
+ #: ../src/cpu.c:1347
+ msgid "\t$T    total CPU time percent usage\n"
+@@ -519,7 +511,7 @@ msgstr ""
+ 
+ #: ../src/cpu.c:1406
+ msgid "Show labels in panels (no labels reduces vertical space)"
+-msgstr ""
++msgstr "Etykiety w panelach (brak etykiet zmniejsza przestrzeń w pionie)"
+ 
+ #: ../src/cpu.c:1409
+ msgid "SMP Charts Select"
+@@ -542,7 +534,7 @@ msgstr "Łańcuch formatowania etykiet w
+ 
+ #: ../src/cpu.c:1446
+ msgid "\\f$L\\n$T"
+-msgstr ""
++msgstr "\\f$L\\n$T"
+ 
+ #: ../src/cpu.c:1448
+ msgid "\\fu \\.$u\\n\\fs \\.$s"
+@@ -557,16 +549,12 @@ msgid "\\ww\\D3\\f\\au\\.$u\\D0\\f\\as\\
+ msgstr "\\ww\\D3\\f\\au\\.$u\\D0\\f\\as\\.$s"
+ 
+ #: ../src/cpu.c:1454 ../src/cpu.c:1456
+-#, fuzzy
+-#| msgid "\\ww\\D2\\f\\au\\.$u\\D1\\f\\as\\.$s"
+ msgid "\\ww\\D2\\f\\au\\.$u\\D1\\f\\as\\.$s\\D3\\f\\r$L"
+-msgstr "\\ww\\D2\\f\\au\\.$u\\D1\\f\\as\\.$s"
++msgstr "\\ww\\D2\\f\\au\\.$u\\D1\\f\\as\\.$s\\D3\\f\\r$L"
+ 
+ #: ../src/cpu.c:1458
+-#, fuzzy
+-#| msgid "\\ww\\D3\\f\\au\\.$u\\D0\\f\\as\\.$s"
+ msgid "\\ww\\D3\\f$L\\n\\f\\as\\.$s\\n\\f\\au\\.$u"
+-msgstr "\\ww\\D3\\f\\au\\.$u\\D0\\f\\as\\.$s"
++msgstr "\\ww\\D3\\f$L\\n\\f\\as\\.$s\\n\\f\\au\\.$u"
+ 
+ #: ../src/disk.c:327 ../src/disk.c:1466 ../src/disk.c:1545 ../src/disk.c:1573
+ #: ../src/sensors.c:2301 ../src/sensors.c:2365 ../src/sysdeps/openbsd.c:410
+@@ -594,10 +582,8 @@ msgid "Bytes per second"
+ msgstr "Bajty na sekundę"
+ 
+ #: ../src/disk.c:1103
+-#, fuzzy
+-#| msgid "Composite Battery"
+ msgid "Composite chart"
+-msgstr "Złożenie baterii"
++msgstr "Wykres złożony"
+ 
+ #: ../src/disk.c:1414
+ msgid "\t$L    the Disk label\n"
+@@ -1047,12 +1033,14 @@ msgstr ""
+ 
+ #: ../src/gui.c:939
+ msgid "\tText drawn on charts cannot use Pango markup and changing the color\n"
+-msgstr ""
++msgstr "\tTekst rysowany na wykresach nie może używać znaczników Pango, a zmiana koloru\n"
+ 
+ #: ../src/gui.c:940
+ msgid ""
+ "\tused for a chart default or alternate font requires editing the theme.\n"
  msgstr ""
-+"Kod zale�ny od systemu Windows zosta� udost�pniony przez:\n"
-+"Bill Nalen <bill@nalens.com>\n"
-+"Stefan Gehn <stefan+gkrellm@srcbox.net>\n"
++"\tużywanego do domyślnego lub alternatywnego fontu wykresu wymaga edycji\n"
++"\twystroju.\n"
  
- #: ../src/gui.c:996
- msgid "<h>Krells\n"
-@@ -1549,7 +1550,7 @@ msgstr "Z�a odpowied� po STARTTLS."
+ #: ../src/gui.c:944
+ msgid ""
+@@ -1061,6 +1049,11 @@ msgid ""
+ "\tmonitors (eg Sensors) require using single quotes instead of double\n"
+ "\tquotes.  For example, to set a big colored CPU label, use markup:\n"
+ msgstr ""
++"\tWiększość etykiet paneli może używać znaczników Pango w celu dostosowania\n"
++"\tfontu lub koloru tekstu. Jeżeli łańcuch znaczników wymaga znaków\n"
++"\tcudzysłowów, niektóre monitory (np. Czujniki) wymagają stosowania\n"
++"\tpojedynczych cudzysłowów zamiast podwójnych. Na przykład, aby ustawić\n"
++"\tdużą, kolorową etykietę CPU, można użyć:\n"
  
- #: ../src/mail.c:1272
+ #: ../src/gui.c:951
+ msgid ""
+@@ -1276,20 +1269,19 @@ msgid ""
+ "themes to match its appearance to your window manager, Gtk, or any other "
+ "theme."
+ msgstr ""
++"GKrellM to działający jako pojedynczy proces stos monitorów systemu, obsługujący nakładanie wystroju, aby dopasować wygląd do zarządcy okien, Gtk lub dowolnego innego motywu."
+ 
+ #: ../src/gui.c:2486 ../src/main.c:1797
+ msgid "GKrellM"
+-msgstr ""
++msgstr "GKrellM"
+ 
+ #: ../src/gui.c:2487
+ msgid "About GKrellM"
+-msgstr ""
++msgstr "O programie GKrellM"
+ 
+ #: ../src/gui.c:2529
+-#, fuzzy
+-#| msgid "/Quit"
+ msgid "Quit"
+-msgstr "/Wyjście"
++msgstr "Wyjście"
+ 
+ #: ../src/gui.c:2533
+ msgid "About"
+@@ -1297,37 +1289,31 @@ msgstr "O"
+ 
+ #: ../src/gui.c:2536
+ msgid "Reload Theme"
+-msgstr ""
++msgstr "Przeładuj wystrój"
+ 
+ #: ../src/gui.c:2538
+-#, fuzzy
+-#| msgid "Theme"
+ msgid "Next Theme"
+-msgstr "Wystrój"
++msgstr "Następny wystrój"
+ 
+ #: ../src/gui.c:2540
+ msgid "Previous Theme"
+-msgstr ""
++msgstr "Poprzedni wystrój"
+ 
+ #: ../src/gui.c:2542
+-#, fuzzy
+-#| msgid "%d total theme alternatives"
+ msgid "Next Theme Alternative"
+-msgstr "%d - ilość alternatywnych wystrojów"
++msgstr "Następny wystrój alternatywny"
+ 
+ #: ../src/gui.c:2544
+-#, fuzzy
+-#| msgid "%d total theme alternatives"
+ msgid "Previous Theme Alternative"
+-msgstr "%d - ilość alternatywnych wystrojów"
++msgstr "Poprzedni wystrój alternatywny"
+ 
+ #: ../src/gui.c:2546
+ msgid "Scale Theme Up"
+-msgstr ""
++msgstr "Powiększ wystrój"
+ 
+ #: ../src/gui.c:2548
+ msgid "Scale Theme Down"
+-msgstr ""
++msgstr "Zmniejsz wystrój"
+ 
+ #: ../src/inet.c:626
+ #, c-format
+@@ -1543,7 +1529,7 @@ msgstr "Zła odpowiedź po STARTTLS."
+ 
+ #: ../src/mail.c:1257
  msgid "Bad response after CAPABILITY."
 -msgstr ""
-+msgstr "Z�a odpowied� po CAPABILITY."
++msgstr "Zła odpowiedź po CAPABILITY."
  
- #: ../src/mail.c:1834
+ #: ../src/mail.c:1819
  #, c-format
-@@ -1728,9 +1729,8 @@ msgid "Mail fetch/check program:"
- msgstr "Program odbieraj�cy/sprawdzaj�cy poczt�:"
+@@ -1722,9 +1708,8 @@ msgid "Mail fetch/check program:"
+ msgstr "Program odbierający/sprawdzający pocztę:"
  
- #: ../src/mail.c:4000
+ #: ../src/mail.c:3944
 -#, fuzzy
  msgid "Run fetch/check program at local interval"
--msgstr "Uruchom lokalny program sprawdzaj�cy/odbieraj�cy poczt� okresowo"
-+msgstr "Uruchom program sprawdzaj�cy/odbieraj�cy z lokalnym okresem"
+-msgstr "Uruchom lokalny program sprawdzający/odbierający pocztę okresowo"
++msgstr "Uruchom program sprawdzający/odbierający z lokalnym okreem"
  
- #: ../src/mail.c:4010
+ #: ../src/mail.c:3954
  msgid "Check local mailboxes every"
-@@ -1939,6 +1939,7 @@ msgid ""
+@@ -1933,6 +1918,8 @@ msgid ""
  "       --m2                 Left button side frame shading (for 2 btn "
  "mice).\n"
  msgstr ""
-+"       --m2                 Cieniowanie ramki po stronie lewego przycisku (dla myszy 2-przyciskowych)\n"
++"       --m2                 Cieniowanie ramki po stronie lewego przycisku\n"
++"                            (dla myszy 2-przyciskowych).\n"
  
- #: ../src/main.c:1788
+ #: ../src/main.c:1753
  msgid "       --nt                 No transparency.\n"
-@@ -1946,13 +1947,15 @@ msgstr "       --nt                 Bez
+@@ -1940,13 +1927,16 @@ msgstr "       --nt                 Bez
  
- #: ../src/main.c:1789
+ #: ../src/main.c:1754
  msgid "   -w, --withdrawn          Draw GKrellM in withdrawn mode.\n"
 -msgstr ""
-+msgstr "   -w, --withdrawn          Rysowanie GKrellM w trybie wycofania.\n"
++msgstr "   -w, --withdrawn          Rysowanie GKrellMa w trybie wycofania.\n"
  
- #: ../src/main.c:1790
+ #: ../src/main.c:1755
  msgid ""
  "   -c, --config suffix      Use alternate config files generated by\n"
  "                            appending \"suffix\" to config file names.\n"
  msgstr ""
-+"   -c, --config przyrostek  U�ycie alternatywnych plik�w konfiguracyjnych\n"
-+"                            wygenerowanych przez dodanie \"przyrostka\" do nazw.\n"
++"   -c, --config przyrostek  Użycie alternatywnych plików konfiguracyjnych\n"
++"                            wygenerowanych przez dołączenie \"przyrostka\" do\n"
++"                            nazw plików.\n"
  
- #: ../src/main.c:1792
+ #: ../src/main.c:1757
  msgid ""
-@@ -1965,6 +1968,15 @@ msgid ""
+@@ -1959,6 +1949,16 @@ msgid ""
  "                            and for the hostname to be in the window title.\n"
  "                            This option has no effect in client mode.\n"
  msgstr ""
-+"   -f, --force-host-config  Utworzenie plik�w konfiguracyjnych wygenerowanych\n"
-+"                            przez dodanie nazwy hosta do nazw plik�w. Kolejne\n"
-+"                            uruchomienia b�d� automatycznie u�ywa� tych\n"
-+"                            plik�w, chyba �e konfiguracja zostanie okre�lona\n"
-+"                            przez --config. Jest to wygodne w przypadku\n"
-+"                            zdalnego uruchamiania z r�nymi konfiguracjami we\n"
-+"                            wsp�dzielonym katalogu domowym i kiedy nazwa hosta\n"
-+"                            jest w tytule okna. Opcja nie ma znaczenia w trybie\n"
-+"                            klienta.\n"
++"   -f, --force-host-config  Utworzenie plików konfiguracyjnych wygenerowanych\n"
++"                            przez dołączone nazwy hosta do nazw plików.\n"
++"                            Kolejne uruchomienia będą automatycznie używały\n"
++"                            tych konfiguracji, o ile nie podano określonej\n"
++"                            konfiguracji poprzez użycie --config.\n"
++"                            Jest to wygodne, kiedy pozwalamy na uruchamianie\n"
++"                            zdalne z niezależnymi konfiguracjami we\n"
++"                            współdzielonym katalogu domowym i kiedy nazwa\n"
++"                            hosta jest w tytule okienka. Ta opcja nie ma\n"
++"                            znaczenia w trybie klienta.\n"
  
- #: ../src/main.c:1800
+ #: ../src/main.c:1765
  msgid ""
-@@ -1985,6 +1997,7 @@ msgstr ""
+@@ -1979,6 +1979,7 @@ msgstr ""
  msgid ""
  "       --nc                 No config mode prevents configuration changes.\n"
  msgstr ""
 +"       --nc                 Tryb bez konfiguracji, zapobiega jej zmianom.\n"
  
- #: ../src/main.c:1804
+ #: ../src/main.c:1769
  msgid "       --config-clean       Clean out unused configs on config write.\n"
-@@ -2027,7 +2040,6 @@ msgstr ""
- "   -d, --debug-level n      W��cz debugowanie dla wybranych sekcji kodu.\n"
+@@ -2021,7 +2022,6 @@ msgstr ""
+ "   -d, --debug-level n      Włącz debugowanie dla wybranych sekcji kodu.\n"
  
- #: ../src/main.c:1813
+ #: ../src/main.c:1778
 -#, fuzzy
  msgid ""
  "\n"
  "debug-level numbers are (bitwise OR to debug multiple sections):\n"
-@@ -2046,10 +2058,10 @@ msgstr ""
- "poziomy debugowania to (u�yj operatora OR aby debugowa� wiele sekcji):\n"
+@@ -2037,13 +2037,13 @@ msgid ""
+ "\n"
+ msgstr ""
+ "\n"
+-"poziomy debugowania to (użyj operatora OR aby debugować wiele sekcji):\n"
++"poziomy diagnostyki to (użyj operatora OR aby śledzić wiele sekcji):\n"
  "     0x10    poczta\n"
- "     0x20    sie�\n"
+ "     0x20    sieć\n"
 -"     0x40    timer button\n"
 +"     0x40    stoper\n"
  "     0x80    czujniki\n"
@@ -141,36 +312,76 @@
  "     0x2000  GUI\n"
  "     0x8000  bateria\n"
  "     0x20000 wtyczka\n"
-@@ -2057,11 +2069,11 @@ msgstr ""
+@@ -2051,7 +2051,7 @@ msgstr ""
  
- #: ../src/main.c:1832
- msgid "GKrellM"
--msgstr ""
-+msgstr "GKrellM"
- 
- #: ../src/main.c:2025
+ #: ../src/main.c:1990
  msgid "segmentation fault"
 -msgstr ""
-+msgstr "naruszenie ochrony pami�ci"
++msgstr "naruszenie ochrony pamięci"
  
- #: ../src/main.c:2027
+ #: ../src/main.c:1992
  msgid "floating point exception"
-@@ -2189,6 +2201,9 @@ msgid ""
+@@ -2179,6 +2179,9 @@ msgid ""
  "The free and used variables may have a 'r' qualifier for printing\n"
  "raw free and raw used values.  For example: $fr for raw free.\n"
  msgstr ""
-+"Nie mo�na odczyta� danych czujnika z demona mbmon.\n"
-+"Prosz� sprawdzi� numer portu mbmon i opcj� '-r'.\n"
-+"Aby uzyska� wyj�cie diagnostyczne, mo�na uruchomi� gkrellmd -d 0x80.\n"
++"Wartości wolnego i używanego mogą mieć modyfikator \"r\" w celu wypisywania\n"
++"surowych wartości wolnego i używanego. Na przykład $fr to surowa wartość\n"
++"wolnego.\n"
  
- #: ../src/mem.c:1286
+ #: ../src/mem.c:1288
  msgid ""
-@@ -2737,7 +2752,7 @@ msgstr "Poka� w stopniach Fahrenheita"
+@@ -2441,11 +2444,11 @@ msgstr "\\f\\ww\\c\\f$M\\D2\\f\\ar\\.$r\
  
- #: ../src/sensors.c:2846
+ #: ../src/net.c:3226
+ msgid "Ignore Net Interfaces"
+-msgstr ""
++msgstr "Ignoruj interfejsy sieciowe"
+ 
+ #: ../src/net.c:3228
+ msgid "Space separated list of patterns.\n"
+-msgstr ""
++msgstr "Oddzielona spacjami lista wzorców.\n"
+ 
+ #: ../src/net.c:3246
+ msgid "Start day for cumulative monthly transmit and receive bytes"
+@@ -2453,10 +2456,8 @@ msgstr ""
+ "Dzień początkowy dla skumulowanych miesięcznych bajtów wysłanych i odebranych"
+ 
+ #: ../src/net.c:3251
+-#, fuzzy
+-#| msgid "Enable swap meter"
+ msgid "Enable new interfaces"
+-msgstr "Miernik swap włączony"
++msgstr "Włącz nowe interfejsy"
+ 
+ #: ../src/net.c:3270
+ msgid "Net"
+@@ -2714,15 +2715,15 @@ msgstr ""
+ #: ../src/sensors.c:2680
+ msgid ""
+ "If you use Pango markup for any custom labels, do not use double quotes.\n"
+-msgstr ""
++msgstr "Przy używaniu znaczników Pango dla własnych etykiet, nie należy używać podwójnych cudzysłowów.\n"
+ 
+ #: ../src/sensors.c:2681
+ msgid "For example, to set a colored CPU label, use single quotes:\n"
+-msgstr ""
++msgstr "Na przykład, aby ustawić kolorową etykietw CPU, należy użyć cudzysłowów pojedynczych:\n"
+ 
+ #: ../src/sensors.c:2682
+ msgid "    <span foreground='cyan'>CPU</span>\n"
+-msgstr ""
++msgstr "    <span foreground='cyan'>CPU</span>\n"
+ 
+ #: ../src/sensors.c:2685
+ msgid "\t$s    current sensor value.\n"
+@@ -2754,7 +2755,7 @@ msgstr "Pokaż w stopniach Fahrenheita"
+ 
+ #: ../src/sensors.c:2830
  msgid "Show units"
 -msgstr ""
-+msgstr "Jednostki wy�wietlane"
++msgstr "Pokazuj jednostki"
  
- #: ../src/sensors.c:2853
+ #: ../src/sensors.c:2837
  msgid "Normal with labels"
